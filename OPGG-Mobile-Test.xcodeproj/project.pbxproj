@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F498E2E7287036E2008E647B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498E2E6287036E2008E647B /* AppDelegate.swift */; };
-		F498E2EB287036E2008E647B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498E2EA287036E2008E647B /* ViewController.swift */; };
+		F498E2EB287036E2008E647B /* SummonerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498E2EA287036E2008E647B /* SummonerViewController.swift */; };
 		F498E2F0287036E4008E647B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F498E2EF287036E4008E647B /* Assets.xcassets */; };
 		F498E2F3287036E4008E647B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F498E2F1287036E4008E647B /* LaunchScreen.storyboard */; };
 		F4FEA9BF2870392900C5CBC2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */; };
@@ -19,16 +19,42 @@
 		F4FEA9CC287039BC00C5CBC2 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9CB287039BC00C5CBC2 /* ReactiveMoya */; };
 		F4FEA9CE287039BC00C5CBC2 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9CD287039BC00C5CBC2 /* RxMoya */; };
 		F4FEA9D1287039D100C5CBC2 /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9D0287039D100C5CBC2 /* RxOptional */; };
+		F4FEA9D328703EF500C5CBC2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9D228703EF400C5CBC2 /* Constant.swift */; };
+		F4FEA9D628703F8100C5CBC2 /* SummonerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9D528703F8100C5CBC2 /* SummonerRouter.swift */; };
+		F4FEA9D92870407900C5CBC2 /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9D82870407800C5CBC2 /* Summoner.swift */; };
+		F4FEA9DB2870423500C5CBC2 /* GameOfSummoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DA2870423500C5CBC2 /* GameOfSummoner.swift */; };
+		F4FEA9DE287047B200C5CBC2 /* OPScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DD287047B200C5CBC2 /* OPScoreBadge.swift */; };
+		F4FEA9E0287047D000C5CBC2 /* MostChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DF287047D000C5CBC2 /* MostChampion.swift */; };
+		F4FEA9E2287047D500C5CBC2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9E1287047D500C5CBC2 /* Game.swift */; };
+		F4FEA9E628706AA300C5CBC2 /* SummonerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9E528706AA300C5CBC2 /* SummonerRepository.swift */; };
+		F4FEA9E928706BC200C5CBC2 /* Moya+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9E828706BC200C5CBC2 /* Moya+Rx.swift */; };
+		F4FEA9EC28706C0600C5CBC2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9EB28706C0600C5CBC2 /* NetworkError.swift */; };
+		F4FEA9EE28706C3800C5CBC2 /* SummonerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9ED28706C3800C5CBC2 /* SummonerService.swift */; };
+		F4FEA9F128706D6E00C5CBC2 /* SummonerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9F028706D6E00C5CBC2 /* SummonerViewModel.swift */; };
+		F4FEA9F32870708C00C5CBC2 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9F22870708C00C5CBC2 /* UIViewController+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F498E2E3287036E2008E647B /* OPGG-Mobile-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OPGG-Mobile-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F498E2E6287036E2008E647B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F498E2EA287036E2008E647B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F498E2EA287036E2008E647B /* SummonerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerViewController.swift; sourceTree = "<group>"; };
 		F498E2EF287036E4008E647B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F498E2F2287036E4008E647B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F498E2F4287036E4008E647B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F4FEA9D228703EF400C5CBC2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		F4FEA9D528703F8100C5CBC2 /* SummonerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRouter.swift; sourceTree = "<group>"; };
+		F4FEA9D82870407800C5CBC2 /* Summoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summoner.swift; sourceTree = "<group>"; };
+		F4FEA9DA2870423500C5CBC2 /* GameOfSummoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfSummoner.swift; sourceTree = "<group>"; };
+		F4FEA9DD287047B200C5CBC2 /* OPScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPScoreBadge.swift; sourceTree = "<group>"; };
+		F4FEA9DF287047D000C5CBC2 /* MostChampion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostChampion.swift; sourceTree = "<group>"; };
+		F4FEA9E1287047D500C5CBC2 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		F4FEA9E528706AA300C5CBC2 /* SummonerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRepository.swift; sourceTree = "<group>"; };
+		F4FEA9E828706BC200C5CBC2 /* Moya+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Rx.swift"; sourceTree = "<group>"; };
+		F4FEA9EB28706C0600C5CBC2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		F4FEA9ED28706C3800C5CBC2 /* SummonerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerService.swift; sourceTree = "<group>"; };
+		F4FEA9F028706D6E00C5CBC2 /* SummonerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerViewModel.swift; sourceTree = "<group>"; };
+		F4FEA9F22870708C00C5CBC2 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +113,16 @@
 		F498E2FB2870376C008E647B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F4FEA9EF28706D6400C5CBC2 /* ViewModel */,
+				F4FEA9E728706BAF00C5CBC2 /* Rx */,
+				F4FEA9E428706A9000C5CBC2 /* Service */,
+				F4FEA9E328706A8700C5CBC2 /* Repository */,
+				F4FEA9DC287047A700C5CBC2 /* Enum */,
+				F4FEA9D72870407000C5CBC2 /* Model */,
+				F4FEA9D428703F7000C5CBC2 /* Router */,
 				F498E2E6287036E2008E647B /* AppDelegate.swift */,
 				F498E2FC28703776008E647B /* Present */,
+				F4FEA9D228703EF400C5CBC2 /* Constant.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -96,10 +130,79 @@
 		F498E2FC28703776008E647B /* Present */ = {
 			isa = PBXGroup;
 			children = (
-				F498E2EA287036E2008E647B /* ViewController.swift */,
+				F498E2EA287036E2008E647B /* SummonerViewController.swift */,
 				F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */,
 			);
 			path = Present;
+			sourceTree = "<group>";
+		};
+		F4FEA9D428703F7000C5CBC2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F4FEA9D528703F8100C5CBC2 /* SummonerRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F4FEA9D72870407000C5CBC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4FEA9D82870407800C5CBC2 /* Summoner.swift */,
+				F4FEA9DA2870423500C5CBC2 /* GameOfSummoner.swift */,
+				F4FEA9E1287047D500C5CBC2 /* Game.swift */,
+				F4FEA9DF287047D000C5CBC2 /* MostChampion.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F4FEA9DC287047A700C5CBC2 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				F4FEA9EA28706BFF00C5CBC2 /* Error */,
+				F4FEA9DD287047B200C5CBC2 /* OPScoreBadge.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		F4FEA9E328706A8700C5CBC2 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F4FEA9E528706AA300C5CBC2 /* SummonerRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		F4FEA9E428706A9000C5CBC2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F4FEA9ED28706C3800C5CBC2 /* SummonerService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F4FEA9E728706BAF00C5CBC2 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				F4FEA9E828706BC200C5CBC2 /* Moya+Rx.swift */,
+				F4FEA9F22870708C00C5CBC2 /* UIViewController+Rx.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		F4FEA9EA28706BFF00C5CBC2 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				F4FEA9EB28706C0600C5CBC2 /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		F4FEA9EF28706D6400C5CBC2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4FEA9F028706D6E00C5CBC2 /* SummonerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,9 +290,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F498E2EB287036E2008E647B /* ViewController.swift in Sources */,
+				F4FEA9D628703F8100C5CBC2 /* SummonerRouter.swift in Sources */,
+				F4FEA9E2287047D500C5CBC2 /* Game.swift in Sources */,
+				F498E2EB287036E2008E647B /* SummonerViewController.swift in Sources */,
+				F4FEA9DB2870423500C5CBC2 /* GameOfSummoner.swift in Sources */,
+				F4FEA9E628706AA300C5CBC2 /* SummonerRepository.swift in Sources */,
+				F4FEA9DE287047B200C5CBC2 /* OPScoreBadge.swift in Sources */,
+				F4FEA9F32870708C00C5CBC2 /* UIViewController+Rx.swift in Sources */,
+				F4FEA9F128706D6E00C5CBC2 /* SummonerViewModel.swift in Sources */,
 				F498E2E7287036E2008E647B /* AppDelegate.swift in Sources */,
+				F4FEA9E928706BC200C5CBC2 /* Moya+Rx.swift in Sources */,
 				F4FEA9BF2870392900C5CBC2 /* BaseViewController.swift in Sources */,
+				F4FEA9D328703EF500C5CBC2 /* Constant.swift in Sources */,
+				F4FEA9EC28706C0600C5CBC2 /* NetworkError.swift in Sources */,
+				F4FEA9E0287047D000C5CBC2 /* MostChampion.swift in Sources */,
+				F4FEA9D92870407900C5CBC2 /* Summoner.swift in Sources */,
+				F4FEA9EE28706C3800C5CBC2 /* SummonerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
