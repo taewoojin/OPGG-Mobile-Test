@@ -39,7 +39,7 @@ class SummonerRepository: SummonerRepositoryProtocol {
             .request(.fetchGameInfo(createDate))
             .map { response in
                 let jsonString = String(data: response.data, encoding: .utf8)
-                print("json: ", jsonString)
+//                print("json: ", jsonString)
                 return response
             }
             .asResult(GameOfSummoner.self)

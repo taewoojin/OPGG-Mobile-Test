@@ -15,6 +15,7 @@ struct Game: Decodable, Hashable {
     let gameLength: Int
     let isWin: Bool
     let stats: Stats
+    let peak: [String]
     
     
     struct Spell: Decodable, Hashable {
@@ -39,9 +40,10 @@ struct Game: Decodable, Hashable {
             let assist: Int
             let opScoreBadge: OPScoreBadge?
             let contributionForKillRate: String     // 킬 관여율
+            let largestMultiKillString: String
             
             enum CodingKeys: String, CodingKey {
-                case kill, death, assist, opScoreBadge, contributionForKillRate
+                case kill, death, assist, opScoreBadge, contributionForKillRate, largestMultiKillString
             }
             
             init(from decoder: Decoder) throws {
@@ -54,6 +56,7 @@ struct Game: Decodable, Hashable {
                 opScoreBadge = OPScoreBadge(rawValue: opBadgeString) ?? nil
                 
                 contributionForKillRate = try values.decode(String.self, forKey: .contributionForKillRate)
+                largestMultiKillString = try values.decode(String.self, forKey: .largestMultiKillString)
             }
         }
     }

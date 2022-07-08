@@ -9,7 +9,7 @@ import RxCocoa
 import RxSwift
 
 
-class SummonerViewModel {
+final class SummonerViewModel {
     
     enum Action {
         case fetchSummonerInfo
@@ -22,6 +22,13 @@ class SummonerViewModel {
     }
     
     struct Store {
+        var sections: [Section] = [
+            Section(type: .info, items: [.info(Summoner(name: "opgg", level: 1, profileImageUrl: "", leagues: []))]),
+            Section(type: .rankStats, items: [.rankStats([1,2,3])]),
+            Section(type: .analysis, items: [.analysis]),
+            Section(type: .game, items: [])
+        ]
+        
         var summonerInfo: Summoner?
         var games: [Game] = []
     }
@@ -29,7 +36,7 @@ class SummonerViewModel {
     
     // MARK: Properties
     
-    var disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     private(set) var store: Store
     
@@ -37,7 +44,7 @@ class SummonerViewModel {
     
     lazy var currentStore = BehaviorRelay<Store>(value: store)
     
-    let service: SummonerServiceProtocol
+    private let service: SummonerServiceProtocol
     
     
     // MARK: Initializing
@@ -63,7 +70,7 @@ class SummonerViewModel {
                 .flatMap { result -> Observable<Mutation> in
                     switch result {
                     case .success(let info):
-                        return .empty()
+                        return .just(.setSummonerInfo(info))
                         
                     case .failure(let error):
                         // TODO: 상황에 따른 에러 처리
@@ -79,7 +86,7 @@ class SummonerViewModel {
                 .flatMap { result -> Observable<Mutation> in
                     switch result {
                     case .success(let info):
-                        return .empty()
+                        return .just(.setGames(info.games))
 
                     case .failure(let error):
                         // TODO: 상황에 따른 에러 처리
@@ -95,9 +102,11 @@ class SummonerViewModel {
         switch mutation {
         case .setSummonerInfo(let summoner):
             store.summonerInfo = summoner
+//            store.sections = [Section(type: .info, items: [.info(summoner)])]
             
         case .setGames(let games):
             store.games = games
+            store.sections[3] = Section(type: .game, items: games.map({ .game($0) }))
         
         }
         
