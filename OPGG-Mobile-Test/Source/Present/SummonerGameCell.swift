@@ -15,7 +15,7 @@ final class SummonerGameCell: UICollectionViewCell {
     // MARK: UI
     
     private lazy var containerStackView = UIStackView(arrangedSubviews: [resultView, contentStackView])
-    
+
     private lazy var contentStackView = UIStackView(arrangedSubviews: [topInfoView, bottomInfoView])
     
     private var resultView: GameResultView!
@@ -35,6 +35,7 @@ final class SummonerGameCell: UICollectionViewCell {
     
     
     // MARK: Life Cycle Views
+    
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
@@ -60,7 +61,6 @@ final class SummonerGameCell: UICollectionViewCell {
         containerStackView.snp.makeConstraints {
             $0.top.bottom.leading.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16)
-//            $0.height.equalTo(100)
         }
         
         resultView.snp.makeConstraints {

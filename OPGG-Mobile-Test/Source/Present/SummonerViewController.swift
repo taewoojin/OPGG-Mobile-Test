@@ -128,16 +128,24 @@ final class SummonerViewController: BaseViewController {
     override func setupBinding() {
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
-        viewModel.currentStore
-            .map { store in
-                return store.sections
+        collectionView.rx.willDisplayCell
+            .filter { [unowned self] (_, indexPath) in
+                let gamesCount = self.viewModel.store.games.count
+                if gamesCount < 20 {
+                    return false
+                }
+                
+                return gamesCount - 2 == indexPath.item
             }
+            .map { [weak self] _ in self?.viewModel.store.games.last?.createDate }
+            .map { .fetchGameInfo($0) }
+            .bind(to: viewModel.action)
+            .disposed(by: disposeBag)
+        
+        viewModel.currentStore
+            .map { $0.sections }
             .filterEmpty()
             .distinctUntilChanged()
-            .do(onNext: { _ in
-                print("dododododododo")
-            })
-//            .take(1)
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }

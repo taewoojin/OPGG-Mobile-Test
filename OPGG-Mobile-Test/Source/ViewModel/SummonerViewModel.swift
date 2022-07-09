@@ -13,7 +13,7 @@ final class SummonerViewModel {
     
     enum Action {
         case fetchSummonerInfo
-        case fetchGameInfo(Int?)
+        case fetchGameInfo(Double?)
     }
     
     enum Mutation {
@@ -86,7 +86,11 @@ final class SummonerViewModel {
                 .flatMap { result -> Observable<Mutation> in
                     switch result {
                     case .success(let info):
-                        return .just(.setGames(info.games))
+                        if createDate == nil {
+                            return .just(.setGames(info.games))
+                        } else {
+                            return .just(.setGames(self.store.games + info.games))
+                        }
 
                     case .failure(let error):
                         // TODO: 상황에 따른 에러 처리

@@ -12,7 +12,7 @@ import Moya
 
 enum SummonerRouter {
     case fetchSummonerInfo
-    case fetchGameInfo(Int?)
+    case fetchGameInfo(Double?)
     
 }
 
