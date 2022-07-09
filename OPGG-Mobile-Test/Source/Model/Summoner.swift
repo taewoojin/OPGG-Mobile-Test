@@ -23,4 +23,6 @@ struct League: Decodable, Hashable {
 struct TierRank: Decodable, Hashable {
     let name: String        // 게임타입
     let imageUrl: String
+    let tier: String
+    let lp: Int
 }

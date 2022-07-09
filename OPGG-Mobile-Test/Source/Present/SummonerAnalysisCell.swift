@@ -14,7 +14,18 @@ final class SummonerAnalysisCell: UICollectionViewCell {
  
     // MARK: UI
     
-    private let titleLabel = UILabel()
+    private lazy var containerStackView = UIStackView(arrangedSubviews: [
+        recentGameAnalysisView,
+        UIView(),
+        mostWinningView,
+        mostPositionView
+    ])
+    
+    private let recentGameAnalysisView = RecentGameAnalysisView()
+    
+    private let mostWinningView = MostWinningView()
+    
+    private let mostPositionView = MostPositionView()
     
     
     // MARK: Properties
@@ -52,16 +63,19 @@ final class SummonerAnalysisCell: UICollectionViewCell {
     private func setupAttributes() {
         backgroundColor = .white
         
-        titleLabel.text = "모스트 승률"
-        titleLabel.textColor = .black
     }
     
     private func setupLayout() {
-        contentView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.height.equalTo(100)
+        contentView.addSubview(containerStackView)
+        containerStackView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(12)
         }
+        
+//        contentView.addSubview(recentGameAnalysisView)
+//        recentGameAnalysisView.snp.makeConstraints {
+//            $0.edges.equalToSuperview()
+//        }
+        
     }
     
 }

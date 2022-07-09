@@ -147,6 +147,9 @@ final class SummonerViewController: BaseViewController {
             switch section.type {
             case .info:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SummonerInfoCell.typeName, for: indexPath) as! SummonerInfoCell
+                if case let SectionItem.info(summoner) = item {
+                    cell.configure(with: summoner)
+                }
                 return cell
                 
             case .rankStats:
@@ -195,5 +198,16 @@ extension SummonerViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let type = dataSource.sectionModels[section].type
+        
+        switch type {
+        case .info: return UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
+        case .rankStats: return UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
+        case .analysis: return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
+        case .game: return UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
+        }
     }
 }

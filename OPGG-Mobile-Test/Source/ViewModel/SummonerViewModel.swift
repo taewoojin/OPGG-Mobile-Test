@@ -23,7 +23,7 @@ final class SummonerViewModel {
     
     struct Store {
         var sections: [Section] = [
-            Section(type: .info, items: [.info(Summoner(name: "opgg", level: 1, profileImageUrl: "", leagues: []))]),
+            Section(type: .info, items: []),
             Section(type: .rankStats, items: [.rankStats([1,2,3])]),
             Section(type: .analysis, items: [.analysis]),
             Section(type: .game, items: [])
@@ -102,7 +102,7 @@ final class SummonerViewModel {
         switch mutation {
         case .setSummonerInfo(let summoner):
             store.summonerInfo = summoner
-//            store.sections = [Section(type: .info, items: [.info(summoner)])]
+            store.sections[0] = Section(type: .info, items: [.info(summoner)])
             
         case .setGames(let games):
             store.games = games

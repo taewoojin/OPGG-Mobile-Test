@@ -14,15 +14,19 @@ final class SeasonStatesCell: UICollectionViewCell {
     
     // MARK: UI
     
-    private lazy var containerStackView = UIStackView(arrangedSubviews: [thumbnailView, contentStackView])
+    private lazy var containerStackView = UIStackView(arrangedSubviews: [tierImageView, contentStackView])
     
-    private lazy var contentStackView = UIStackView(arrangedSubviews: [rankTypeLabel, nameLabel])
+    private lazy var contentStackView = UIStackView(arrangedSubviews: [rankTypeLabel, tierLabel, lpLabel, winRateLabel])
     
-    private let thumbnailView = UIImageView()
+    private let tierImageView = UIImageView()
     
     private let rankTypeLabel = UILabel()
     
-    private let nameLabel = UILabel()
+    private let tierLabel = UILabel()
+    
+    private let lpLabel = UILabel()
+    
+    private let winRateLabel = UILabel()
     
     
     // MARK: Properties
@@ -59,44 +63,54 @@ final class SeasonStatesCell: UICollectionViewCell {
     // MARK: Setup
     
     private func setupAttributes() {
-        backgroundColor = .white
+        contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 4
+        contentView.layer.masksToBounds = true
         
         containerStackView.axis = .horizontal
+        containerStackView.alignment = .center
         containerStackView.spacing = 20
         
         contentStackView.axis = .vertical
         contentStackView.alignment = .leading
+        contentStackView.spacing = 2
         
-        thumbnailView.backgroundColor = .systemBlue
-        thumbnailView.layer.cornerRadius = 25
-        thumbnailView.layer.masksToBounds = true
+        tierImageView.layer.cornerRadius = 32
+        tierImageView.layer.masksToBounds = true
         
-        rankTypeLabel.text = "soloRank"
-        rankTypeLabel.textColor = .systemBlue
+        rankTypeLabel.textColor = #colorLiteral(red: 0.3254901961, green: 0.5137254902, blue: 0.9098039216, alpha: 1)
+        rankTypeLabel.font = .systemFont(ofSize: 12)
         
-        nameLabel.text = "Grandmaster"
-        nameLabel.textColor = .darkGray
-        nameLabel.font = .systemFont(ofSize: 15)
+        tierLabel.textColor = #colorLiteral(red: 0.1176470588, green: 0.1254901961, blue: 0.1333333333, alpha: 1)
+        tierLabel.font = .systemFont(ofSize: 18, weight: .bold)
+        
+        lpLabel.textColor = #colorLiteral(red: 0.1176470588, green: 0.1254901961, blue: 0.1333333333, alpha: 1)
+        lpLabel.font = .systemFont(ofSize: 12)
+        
+        winRateLabel.font = .systemFont(ofSize: 10)
+        winRateLabel.textColor = #colorLiteral(red: 0.4823529412, green: 0.5215686275, blue: 0.5568627451, alpha: 1)
     }
     
     private func setupLayout() {
         contentView.addSubview(containerStackView)
         containerStackView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.bottom.equalToSuperview().inset(18)
         }
         
-        thumbnailView.snp.makeConstraints {
-            $0.width.height.equalTo(50)
+        tierImageView.snp.makeConstraints {
+            $0.width.height.equalTo(64)
         }
     }
     
-    private func setupBinding() {
-
-    }
-    
-    func configure(with summoner: Summoner) {
-        nameLabel.text = summoner.name
+    func configure(with league: League) {
+        tierImageView.loadImage(urlString: league.tierRank.imageUrl)
+        rankTypeLabel.text = league.tierRank.name
+        tierLabel.text = league.tierRank.tier
+        lpLabel.text = "\(league.tierRank.lp) LP"
+        
+        let winRate = Int(round(CGFloat(league.wins) / CGFloat(league.wins + league.losses) * 100))
+        winRateLabel.text = "\(league.wins)승 \(league.losses)패 (\(winRate)%)"
     }
     
     

@@ -25,8 +25,6 @@ final class SummonerRankListCell: UICollectionViewCell {
     
     private var disposeBag = DisposeBag()
     
-    private let items = [1,2,3,4,5,6,7,8,9,10]
-    
     
     // MARK: Initializing
     
@@ -49,32 +47,43 @@ final class SummonerRankListCell: UICollectionViewCell {
         disposeBag = DisposeBag()
     }
     
+//    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+//        let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
+//        layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+//        return layoutAttributes
+//    }
+    
     
     // MARK: Setup
     
     private func setupAttributes() {
-        backgroundColor = .clear
-        
         collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         collectionViewLayout.scrollDirection = .horizontal
+        
         collectionView.delegate = self
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .clear
         collectionView.register(SeasonStatesCell.self, forCellWithReuseIdentifier: SeasonStatesCell.typeName)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     private func setupLayout() {
         contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-//            $0.height.equalTo(100)
+//            $0.top.leading.trailing.equalToSuperview()
+//            $0.bottom.equalToSuperview().inset(16)
         }
     }
     
     private func setupBinding() {
         disposeBag = DisposeBag()
         
-        Observable.just(items)
+        viewModel?.currentStore
+            .map { $0.summonerInfo?.leagues }
+            .filterNil()
             .bind(to: collectionView.rx.items(cellIdentifier: SeasonStatesCell.typeName, cellType: SeasonStatesCell.self)) { row, element, cell in
-                print("row:", row)
+                cell.configure(with: element)
             }
             .disposed(by: disposeBag)
     }
@@ -90,7 +99,7 @@ final class SummonerRankListCell: UICollectionViewCell {
 extension SummonerRankListCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width * (2/3), height: 100)
+        return CGSize(width: 272, height: 100)
     }
     
 }

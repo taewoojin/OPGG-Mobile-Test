@@ -76,9 +76,8 @@ final class SummonerInfoCell: UICollectionViewCell {
         thumbnailView.layer.cornerRadius = 50
         thumbnailView.layer.masksToBounds = true
         
-        nameLabel.text = "OPGG"
         nameLabel.textColor = .darkGray
-        nameLabel.font = .systemFont(ofSize: 15)
+        nameLabel.font = .systemFont(ofSize: 24, weight: .bold)
         
 //        var configuration = UIButton.Configuration.plain()
 //        configuration.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30)
@@ -87,6 +86,7 @@ final class SummonerInfoCell: UICollectionViewCell {
         refreshButton.setTitleColor(.white, for: .normal)
         refreshButton.backgroundColor = .systemBlue
         refreshButton.layer.cornerRadius = 20
+        refreshButton.titleLabel?.font = .systemFont(ofSize: 14)
 //        refreshButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
         
         
@@ -117,10 +117,8 @@ final class SummonerInfoCell: UICollectionViewCell {
         }
     }
     
-    private func setupBinding() {
-    }
-    
     func configure(with summoner: Summoner) {
+        thumbnailView.loadImage(urlString: summoner.profileImageUrl)
         nameLabel.text = summoner.name
     }
     
