@@ -30,8 +30,6 @@ final class SummonerAnalysisCell: UICollectionViewCell {
     
     // MARK: Properties
     
-    private weak var viewModel: SummonerViewModel?
-    
     private var disposeBag = DisposeBag()
     
     
@@ -70,12 +68,6 @@ final class SummonerAnalysisCell: UICollectionViewCell {
         containerStackView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(12)
         }
-        
-//        contentView.addSubview(recentGameAnalysisView)
-//        recentGameAnalysisView.snp.makeConstraints {
-//            $0.edges.equalToSuperview()
-//        }
-        
     }
     
 }

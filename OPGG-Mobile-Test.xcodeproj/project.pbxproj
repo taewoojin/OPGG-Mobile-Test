@@ -10,8 +10,8 @@
 		F460D5D82876BDF5009F3C31 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F460D5D72876BDF5009F3C31 /* RxDataSources */; };
 		F460D5DC2877270B009F3C31 /* SummonerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5DB2877270B009F3C31 /* SummonerInfoCell.swift */; };
 		F460D5DF287727BE009F3C31 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5DE287727BE009F3C31 /* NSObject+Extensions.swift */; };
-		F460D5E12877D01A009F3C31 /* SeasonStatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5E02877D01A009F3C31 /* SeasonStatesCell.swift */; };
-		F460D5E52877FF88009F3C31 /* SummonerRankListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5E42877FF88009F3C31 /* SummonerRankListCell.swift */; };
+		F460D5E12877D01A009F3C31 /* SummonerTierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5E02877D01A009F3C31 /* SummonerTierCell.swift */; };
+		F460D5E52877FF88009F3C31 /* SummonerTierSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5E42877FF88009F3C31 /* SummonerTierSectionCell.swift */; };
 		F460D5E7287806F2009F3C31 /* SummonerAnalysisCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5E6287806F2009F3C31 /* SummonerAnalysisCell.swift */; };
 		F460D5E928780CEF009F3C31 /* SummonerGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5E828780CEF009F3C31 /* SummonerGameCell.swift */; };
 		F460D5EC28780F46009F3C31 /* GameResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5EB28780F46009F3C31 /* GameResultView.swift */; };
@@ -27,6 +27,7 @@
 		F460D60728794894009F3C31 /* MostWinningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60628794894009F3C31 /* MostWinningView.swift */; };
 		F460D609287949DD009F3C31 /* WinningRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D608287949DD009F3C31 /* WinningRateView.swift */; };
 		F460D60B28794FD9009F3C31 /* MostPositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60A28794FD8009F3C31 /* MostPositionView.swift */; };
+		F460D60D28795A37009F3C31 /* ImageViewWithLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */; };
 		F498E2E7287036E2008E647B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498E2E6287036E2008E647B /* AppDelegate.swift */; };
 		F498E2EB287036E2008E647B /* SummonerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498E2EA287036E2008E647B /* SummonerViewController.swift */; };
 		F498E2F0287036E4008E647B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F498E2EF287036E4008E647B /* Assets.xcassets */; };
@@ -57,8 +58,8 @@
 /* Begin PBXFileReference section */
 		F460D5DB2877270B009F3C31 /* SummonerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfoCell.swift; sourceTree = "<group>"; };
 		F460D5DE287727BE009F3C31 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
-		F460D5E02877D01A009F3C31 /* SeasonStatesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonStatesCell.swift; sourceTree = "<group>"; };
-		F460D5E42877FF88009F3C31 /* SummonerRankListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRankListCell.swift; sourceTree = "<group>"; };
+		F460D5E02877D01A009F3C31 /* SummonerTierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerTierCell.swift; sourceTree = "<group>"; };
+		F460D5E42877FF88009F3C31 /* SummonerTierSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerTierSectionCell.swift; sourceTree = "<group>"; };
 		F460D5E6287806F2009F3C31 /* SummonerAnalysisCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerAnalysisCell.swift; sourceTree = "<group>"; };
 		F460D5E828780CEF009F3C31 /* SummonerGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerGameCell.swift; sourceTree = "<group>"; };
 		F460D5EB28780F46009F3C31 /* GameResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		F460D60628794894009F3C31 /* MostWinningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostWinningView.swift; sourceTree = "<group>"; };
 		F460D608287949DD009F3C31 /* WinningRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningRateView.swift; sourceTree = "<group>"; };
 		F460D60A28794FD8009F3C31 /* MostPositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPositionView.swift; sourceTree = "<group>"; };
+		F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewWithLevel.swift; sourceTree = "<group>"; };
 		F498E2E3287036E2008E647B /* OPGG-Mobile-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OPGG-Mobile-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F498E2E6287036E2008E647B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F498E2EA287036E2008E647B /* SummonerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerViewController.swift; sourceTree = "<group>"; };
@@ -225,9 +227,10 @@
 				F498E2EA287036E2008E647B /* SummonerViewController.swift */,
 				F460D5E828780CEF009F3C31 /* SummonerGameCell.swift */,
 				F460D5E6287806F2009F3C31 /* SummonerAnalysisCell.swift */,
-				F460D5E42877FF88009F3C31 /* SummonerRankListCell.swift */,
-				F460D5E02877D01A009F3C31 /* SeasonStatesCell.swift */,
+				F460D5E42877FF88009F3C31 /* SummonerTierSectionCell.swift */,
+				F460D5E02877D01A009F3C31 /* SummonerTierCell.swift */,
 				F460D5DB2877270B009F3C31 /* SummonerInfoCell.swift */,
+				F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */,
 				F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */,
 			);
 			path = Present;
@@ -413,18 +416,19 @@
 				F460D60B28794FD9009F3C31 /* MostPositionView.swift in Sources */,
 				F460D5F028782099009F3C31 /* GameTopInfoView.swift in Sources */,
 				F460D5F228782707009F3C31 /* KDAInfoView.swift in Sources */,
-				F460D5E52877FF88009F3C31 /* SummonerRankListCell.swift in Sources */,
+				F460D5E52877FF88009F3C31 /* SummonerTierSectionCell.swift in Sources */,
 				F4FEA9BF2870392900C5CBC2 /* BaseViewController.swift in Sources */,
 				F4FEA9D328703EF500C5CBC2 /* Constant.swift in Sources */,
 				F460D5F728782FF0009F3C31 /* PaddingLabel.swift in Sources */,
 				F460D5EE28781715009F3C31 /* GameBottomInfoView.swift in Sources */,
+				F460D60D28795A37009F3C31 /* ImageViewWithLevel.swift in Sources */,
 				F4FEA9EC28706C0600C5CBC2 /* NetworkError.swift in Sources */,
 				F4FEA9E0287047D000C5CBC2 /* MostChampion.swift in Sources */,
 				F460D609287949DD009F3C31 /* WinningRateView.swift in Sources */,
 				F460D5EC28780F46009F3C31 /* GameResultView.swift in Sources */,
 				F4FEA9D92870407900C5CBC2 /* Summoner.swift in Sources */,
 				F460D5DF287727BE009F3C31 /* NSObject+Extensions.swift in Sources */,
-				F460D5E12877D01A009F3C31 /* SeasonStatesCell.swift in Sources */,
+				F460D5E12877D01A009F3C31 /* SummonerTierCell.swift in Sources */,
 				F4FEA9EE28706C3800C5CBC2 /* SummonerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

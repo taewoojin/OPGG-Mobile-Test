@@ -14,19 +14,22 @@ final class SummonerInfoCell: UICollectionViewCell {
     
     // MARK: UI
     
-    private lazy var containerStackView = UIStackView(arrangedSubviews: [thumbnailView, contentStackView])
+    private lazy var containerStackView = UIStackView(arrangedSubviews: [
+        thumbnailView,
+        contentStackView
+    ])
     
-    private lazy var contentStackView = UIStackView(arrangedSubviews: [nameLabel, refreshButton])
+    private lazy var contentStackView = UIStackView(arrangedSubviews: [
+        nameLabel,
+        UIView(),
+        refreshButton
+    ])
     
-    private let thumbnailView = UIImageView()
+    private let thumbnailView = ImageViewWithLevel()
     
     private let nameLabel = UILabel()
     
     private let refreshButton = UIButton()
-    
-    private let collectionViewLayout = UICollectionViewFlowLayout()
-    
-    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
     
     
     // MARK: Properties
@@ -42,7 +45,6 @@ final class SummonerInfoCell: UICollectionViewCell {
         super.init(frame: frame)
         setupAttributes()
         setupLayout()
-        
     }
     
     @available(*, unavailable)
@@ -52,6 +54,11 @@ final class SummonerInfoCell: UICollectionViewCell {
     
     
     // MARK: Life Cycle Views
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
@@ -69,36 +76,22 @@ final class SummonerInfoCell: UICollectionViewCell {
         containerStackView.spacing = 20
         
         contentStackView.axis = .vertical
-        contentStackView.distribution = .fillProportionally
         contentStackView.alignment = .leading
-        
-        thumbnailView.backgroundColor = .systemBlue
-        thumbnailView.layer.cornerRadius = 50
-        thumbnailView.layer.masksToBounds = true
         
         nameLabel.textColor = .darkGray
         nameLabel.font = .systemFont(ofSize: 24, weight: .bold)
-        
-//        var configuration = UIButton.Configuration.plain()
-//        configuration.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30)
-//        refreshButton.configuration = configuration
+
         refreshButton.setTitle("전적갱신", for: .normal)
         refreshButton.setTitleColor(.white, for: .normal)
-        refreshButton.backgroundColor = .systemBlue
+        refreshButton.backgroundColor = #colorLiteral(red: 0.3254901961, green: 0.5137254902, blue: 0.9098039216, alpha: 1)
         refreshButton.layer.cornerRadius = 20
         refreshButton.titleLabel?.font = .systemFont(ofSize: 14)
-//        refreshButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
-        
-        
-        collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        collectionViewLayout.scrollDirection = .horizontal
-        collectionView.register(SeasonStatesCell.self, forCellWithReuseIdentifier: SeasonStatesCell.typeName)
     }
     
     private func setupLayout() {
         contentView.addSubview(containerStackView)
         containerStackView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
         
         thumbnailView.snp.makeConstraints {
@@ -107,20 +100,30 @@ final class SummonerInfoCell: UICollectionViewCell {
         
         refreshButton.snp.makeConstraints {
             $0.width.equalTo(100)
-            $0.height.equalTo(50)
+            $0.height.equalTo(40)
         }
+    }
+    
+    private func setupBinding() {
+        guard let viewModel = self.viewModel else { return }
         
-        contentView.addSubview(collectionView)
-        collectionView.snp.makeConstraints {
-            $0.top.equalTo(containerStackView.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
+        refreshButton.rx.tap
+            .flatMap {
+                Observable.merge(
+                    .just(.fetchSummonerInfo),
+                    .just(.fetchGameInfo(nil))
+                )
+            }
+            .bind(to: viewModel.action)
+            .disposed(by: disposeBag)
     }
     
-    func configure(with summoner: Summoner) {
-        thumbnailView.loadImage(urlString: summoner.profileImageUrl)
+    func configure(with summoner: Summoner, viewModel: SummonerViewModel?) {
+        thumbnailView.configure(imageUrl: summoner.profileImageUrl, level: summoner.level)
         nameLabel.text = summoner.name
+        
+        self.viewModel = viewModel
+        setupBinding()
     }
-    
     
 }

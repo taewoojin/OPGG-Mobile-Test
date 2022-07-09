@@ -12,7 +12,7 @@ import Moya
 
 enum SummonerRouter {
     case fetchSummonerInfo
-    case fetchGameInfo(Int)
+    case fetchGameInfo(Int?)
     
 }
 
@@ -42,8 +42,9 @@ extension SummonerRouter: TargetType {
     var parameters: [String: Any] {
         switch self {
         case .fetchGameInfo(let createDate):
+            guard let date = createDate else { return [:] }
             return [
-                "lastMatch": createDate
+                "lastMatch": date
             ]
             
         default: return [:]

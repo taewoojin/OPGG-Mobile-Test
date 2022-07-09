@@ -13,14 +13,6 @@ import RxSwift
 import SnapKit
 
 
-//enum Section: Hashable {
-//    case info(content: [SectionItem])
-////    case info
-////    case seasonStats
-////    case analysis
-////    case game
-//}
-
 enum SectionType {
     case info
     case rankStats
@@ -35,7 +27,7 @@ enum SectionItem: Hashable {
     case game(Game)
 }
 
-struct Section {
+struct Section: Hashable {
     var type: SectionType
     var items: [SectionItem]
 }
@@ -92,17 +84,24 @@ final class SummonerViewController: BaseViewController {
         super.setupAttributes()
         
         collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        collectionViewLayout.scrollDirection = .horizontal
-//        collectionViewLayout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-//        collectionViewLayout.headerReferenceSize = CGSize(width: collectionView.frame.size.width, height: 30)
 
-        collectionView.delegate = self
         collectionView.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.9764705882, alpha: 1)
-//        collectionView.contentInsetAdjustmentBehavior = .always
-        collectionView.register(SummonerInfoCell.self, forCellWithReuseIdentifier: SummonerInfoCell.typeName)
-        collectionView.register(SummonerRankListCell.self, forCellWithReuseIdentifier: SummonerRankListCell.typeName)
-        collectionView.register(SummonerAnalysisCell.self, forCellWithReuseIdentifier: SummonerAnalysisCell.typeName)
-        collectionView.register(SummonerGameCell.self, forCellWithReuseIdentifier: SummonerGameCell.typeName)
+        collectionView.register(
+            SummonerInfoCell.self,
+            forCellWithReuseIdentifier: SummonerInfoCell.typeName
+        )
+        collectionView.register(
+            SummonerTierSectionCell.self,
+            forCellWithReuseIdentifier: SummonerTierSectionCell.typeName
+        )
+        collectionView.register(
+            SummonerAnalysisCell.self,
+            forCellWithReuseIdentifier: SummonerAnalysisCell.typeName
+        )
+        collectionView.register(
+            SummonerGameCell.self,
+            forCellWithReuseIdentifier: SummonerGameCell.typeName
+        )
     }
     
     override func setupLayout() {
@@ -121,86 +120,96 @@ final class SummonerViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         viewDidLoad
-            .map { .fetchGameInfo(1656750556) }
+            .map { .fetchGameInfo(nil) }
             .bind(to: viewModel.action)
             .disposed(by: disposeBag)
     }
     
     override func setupBinding() {
-//        collectionView.rx.setDataSource(self).disposed(by: disposeBag)
-//        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
         viewModel.currentStore
             .map { store in
                 return store.sections
             }
             .filterEmpty()
+            .distinctUntilChanged()
+            .do(onNext: { _ in
+                print("dododododododo")
+            })
 //            .take(1)
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
     
     private func setupDatasource() {
-        dataSource = RxCollectionViewSectionedReloadDataSource<Section> { dataSource, collectionView, indexPath, item in
-            let section = dataSource.sectionModels[indexPath.section]
+        dataSource = RxCollectionViewSectionedReloadDataSource<Section> {
+            dataSource, collectionView, indexPath, item in
             
-            switch section.type {
-            case .info:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SummonerInfoCell.typeName, for: indexPath) as! SummonerInfoCell
-                if case let SectionItem.info(summoner) = item {
-                    cell.configure(with: summoner)
-                }
+            switch item {
+            case let .info(summoner):
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: SummonerInfoCell.typeName,
+                    for: indexPath
+                ) as! SummonerInfoCell
+                cell.configure(with: summoner, viewModel: self.viewModel)
                 return cell
                 
-            case .rankStats:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SummonerRankListCell.typeName, for: indexPath) as! SummonerRankListCell
+            case .rankStats(_):
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: SummonerTierSectionCell.typeName,
+                    for: indexPath
+                ) as! SummonerTierSectionCell
                 cell.configure(viewModel: self.viewModel)
                 return cell
                 
             case .analysis:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SummonerAnalysisCell.typeName, for: indexPath) as! SummonerAnalysisCell
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: SummonerAnalysisCell.typeName,
+                    for: indexPath
+                ) as! SummonerAnalysisCell
                 return cell
                 
-            case .game:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SummonerGameCell.typeName, for: indexPath) as! SummonerGameCell
-                if case let SectionItem.game(game) = item {
-                    cell.configure(with: game)
-                }
+            case let .game(game):
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: SummonerGameCell.typeName,
+                    for: indexPath
+                ) as! SummonerGameCell
+                cell.configure(with: game)
                 return cell
-                
             }
+            
         }
     }
 
 }
 
 
-extension SummonerViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let section = dataSource.sectionModels[indexPath.section]
+// MARK: - UICollectionViewDelegateFlowLayout
 
-        switch section.type {
-        case .info:
-            return CGSize(width: collectionView.bounds.width, height: 100)
-            
-        case .rankStats:
-            return CGSize(width: collectionView.bounds.width, height: 100)
-            
-        case .analysis:
-            return CGSize(width: collectionView.bounds.width, height: 90)
-            
-        case .game:
-            return CGSize(width: collectionView.bounds.width, height: 100)
-            
-        }
+extension SummonerViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 100)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
         return 4
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         let type = dataSource.sectionModels[section].type
         
         switch type {

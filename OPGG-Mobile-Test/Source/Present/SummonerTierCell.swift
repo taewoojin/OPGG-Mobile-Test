@@ -1,5 +1,5 @@
 //
-//  SeasonStatesCell.swift
+//  SummonerTierCell.swift
 //  OPGG-Mobile-Test
 //
 //  Created by 진태우 on 2022/07/08.
@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 
-final class SeasonStatesCell: UICollectionViewCell {
+final class SummonerTierCell: UICollectionViewCell {
     
     // MARK: UI
     
@@ -42,7 +42,6 @@ final class SeasonStatesCell: UICollectionViewCell {
         super.init(frame: frame)
         setupAttributes()
         setupLayout()
-        
     }
     
     @available(*, unavailable)
@@ -112,6 +111,5 @@ final class SeasonStatesCell: UICollectionViewCell {
         let winRate = Int(round(CGFloat(league.wins) / CGFloat(league.wins + league.losses) * 100))
         winRateLabel.text = "\(league.wins)승 \(league.losses)패 (\(winRate)%)"
     }
-    
     
 }

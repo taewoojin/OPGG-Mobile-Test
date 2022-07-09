@@ -13,7 +13,7 @@ final class SummonerViewModel {
     
     enum Action {
         case fetchSummonerInfo
-        case fetchGameInfo(Int)
+        case fetchGameInfo(Int?)
     }
     
     enum Mutation {
