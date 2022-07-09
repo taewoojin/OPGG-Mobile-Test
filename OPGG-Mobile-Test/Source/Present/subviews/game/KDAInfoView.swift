@@ -19,19 +19,12 @@ final class KDAInfoView: UIView {
     private let contributionForKillRateLabel = UILabel()
     
     
-    // MARK: Properties
-    
-    private let game: Game
-    
-    
     // MARK: Initializing
     
-    init(game: Game) {
-        self.game = game
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupAttributes()
         setupLayout()
-        configure()
     }
     
     @available(*, unavailable)
@@ -61,7 +54,7 @@ final class KDAInfoView: UIView {
         }
     }
     
-    func configure() {
+    func configure(with game: Game) {
         let kill = game.stats.general.kill
         let death = game.stats.general.death
         let assist = game.stats.general.assist

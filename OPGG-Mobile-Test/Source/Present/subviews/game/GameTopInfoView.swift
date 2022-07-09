@@ -26,24 +26,17 @@ final class GameTopInfoView: UIView {
     
     private let peakStackView = UIStackView()
     
-    private lazy var kdaInfoView = KDAInfoView(game: game)
+    private let kdaInfoView = KDAInfoView()
     
-    private lazy var gameTimeView = GameTimeView(game: game)
-    
-    
-    // MARK: Properties
-    
-    private let game: Game
+    private let gameTimeView = GameTimeView()
     
     
     // MARK: Initializing
     
-    init(game: Game) {
-        self.game = game
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupAttributes()
         setupLayout()
-        configure()
     }
     
     @available(*, unavailable)
@@ -89,9 +82,13 @@ final class GameTopInfoView: UIView {
         }
     }
     
-    private func configure() {
+    func configure(with game: Game) {
+        kdaInfoView.configure(with: game)
+        gameTimeView.configure(with: game)
+        
         charactorImageView.loadImage(urlString: game.champion.imageUrl)
         
+        spellStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         for spell in game.spells {
             let imageView = UIImageView()
             imageView.layer.masksToBounds = true
@@ -101,6 +98,7 @@ final class GameTopInfoView: UIView {
             spellStackView.addArrangedSubview(imageView)
         }
         
+        peakStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         for peak in game.peak {
             let imageView = UIImageView()
             imageView.layer.masksToBounds = true

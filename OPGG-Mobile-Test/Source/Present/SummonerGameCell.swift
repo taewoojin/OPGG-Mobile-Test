@@ -18,11 +18,11 @@ final class SummonerGameCell: UICollectionViewCell {
 
     private lazy var contentStackView = UIStackView(arrangedSubviews: [topInfoView, bottomInfoView])
     
-    private var resultView: GameResultView!
+    private var resultView: GameResultView = GameResultView()
     
-    private var topInfoView: GameTopInfoView!
+    private var topInfoView: GameTopInfoView = GameTopInfoView()
     
-    private var bottomInfoView: GameBottomInfoView!
+    private var bottomInfoView: GameBottomInfoView = GameBottomInfoView()
     
     
     // MARK: Properties
@@ -34,8 +34,20 @@ final class SummonerGameCell: UICollectionViewCell {
     private var game: Game?
     
     
-    // MARK: Life Cycle Views
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupAttributes()
+        setupLayout()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: Life Cycle Views
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
@@ -70,12 +82,9 @@ final class SummonerGameCell: UICollectionViewCell {
     }
     
     func configure(with game: Game) {
-        resultView = GameResultView(game: game)
-        topInfoView = GameTopInfoView(game: game)
-        bottomInfoView = GameBottomInfoView(game: game)
-        
-        setupAttributes()
-        setupLayout()
+        resultView.configure(with: game)
+        topInfoView.configure(with: game)
+        bottomInfoView.configure(with: game)
     }
     
 }

@@ -20,19 +20,12 @@ final class GameResultView: UIView {
     private let scoreLabel = UILabel()
     
     
-    // MARK: Properties
-    
-    private let game: Game
-    
-    
     // MARK: Initializing
     
-    init(game: Game) {
-        self.game = game
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupAttributes()
         setupLayout()
-        configure()
     }
     
     @available(*, unavailable)
@@ -70,7 +63,7 @@ final class GameResultView: UIView {
         }
     }
     
-    private func configure() {
+    func configure(with game: Game) {
         backgroundColor = game.isWin ? .systemBlue : .systemRed
         resultLabel.text = game.isWin ? "승" : "패"
         scoreLabel.text = "1:1"

@@ -19,19 +19,12 @@ final class GameTimeView: UIView {
     private let timeLabel = UILabel()
     
     
-    // MARK: Properties
-    
-    private let game: Game
-    
-    
     // MARK: Initializing
     
-    init(game: Game) {
-        self.game = game
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupAttributes()
         setupLayout()
-        configure()
     }
     
     @available(*, unavailable)
@@ -61,7 +54,7 @@ final class GameTimeView: UIView {
         }
     }
     
-    private func configure() {
+    func configure(with game: Game) {
         typeLabel.text = game.gameType
         timeLabel.text = "2분 전"
     }

@@ -16,19 +16,13 @@ final class GameBottomInfoView: UIView {
     
     private let largestMultiKillLabel = PaddingLabel(top: 4, right: 8, bottom: 3, left: 8)
     
-    // MARK: Properties
-    
-    private let game: Game
-    
     
     // MARK: Initializing
     
-    init(game: Game) {
-        self.game = game
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupAttributes()
         setupLayout()
-        configure()
     }
     
     @available(*, unavailable)
@@ -64,7 +58,8 @@ final class GameBottomInfoView: UIView {
         }
     }
     
-    private func configure() {
+    func configure(with game: Game) {
+        itemStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         for item in game.items {
             let imageView = UIImageView()
             imageView.backgroundColor = .systemGray
