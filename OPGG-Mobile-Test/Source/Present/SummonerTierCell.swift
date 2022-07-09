@@ -14,7 +14,11 @@ final class SummonerTierCell: UICollectionViewCell {
     
     // MARK: UI
     
-    private lazy var containerStackView = UIStackView(arrangedSubviews: [tierImageView, contentStackView])
+    private lazy var containerStackView = UIStackView(arrangedSubviews: [
+        tierImageView,
+        contentStackView,
+        arrowView
+    ])
     
     private lazy var contentStackView = UIStackView(arrangedSubviews: [rankTypeLabel, tierLabel, lpLabel, winRateLabel])
     
@@ -27,6 +31,8 @@ final class SummonerTierCell: UICollectionViewCell {
     private let lpLabel = UILabel()
     
     private let winRateLabel = UILabel()
+    
+    private let arrowView = RightArrowView()
     
     
     // MARK: Properties
@@ -68,7 +74,7 @@ final class SummonerTierCell: UICollectionViewCell {
         
         containerStackView.axis = .horizontal
         containerStackView.alignment = .center
-        containerStackView.spacing = 20
+        containerStackView.spacing = 8
         
         contentStackView.axis = .vertical
         contentStackView.alignment = .leading
@@ -99,6 +105,10 @@ final class SummonerTierCell: UICollectionViewCell {
         
         tierImageView.snp.makeConstraints {
             $0.width.height.equalTo(64)
+        }
+        
+        arrowView.snp.makeConstraints {
+            $0.width.height.equalTo(40)
         }
     }
     

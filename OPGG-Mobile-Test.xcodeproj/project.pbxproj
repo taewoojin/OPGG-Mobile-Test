@@ -28,6 +28,7 @@
 		F460D609287949DD009F3C31 /* WinningRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D608287949DD009F3C31 /* WinningRateView.swift */; };
 		F460D60B28794FD9009F3C31 /* MostPositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60A28794FD8009F3C31 /* MostPositionView.swift */; };
 		F460D60D28795A37009F3C31 /* ImageViewWithLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */; };
+		F460D60F287962F8009F3C31 /* RightArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60E287962F8009F3C31 /* RightArrowView.swift */; };
 		F498E2E7287036E2008E647B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498E2E6287036E2008E647B /* AppDelegate.swift */; };
 		F498E2EB287036E2008E647B /* SummonerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498E2EA287036E2008E647B /* SummonerViewController.swift */; };
 		F498E2F0287036E4008E647B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F498E2EF287036E4008E647B /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		F460D608287949DD009F3C31 /* WinningRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningRateView.swift; sourceTree = "<group>"; };
 		F460D60A28794FD8009F3C31 /* MostPositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPositionView.swift; sourceTree = "<group>"; };
 		F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewWithLevel.swift; sourceTree = "<group>"; };
+		F460D60E287962F8009F3C31 /* RightArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightArrowView.swift; sourceTree = "<group>"; };
 		F498E2E3287036E2008E647B /* OPGG-Mobile-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OPGG-Mobile-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F498E2E6287036E2008E647B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F498E2EA287036E2008E647B /* SummonerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				F460D5E6287806F2009F3C31 /* SummonerAnalysisCell.swift */,
 				F460D5E42877FF88009F3C31 /* SummonerTierSectionCell.swift */,
 				F460D5E02877D01A009F3C31 /* SummonerTierCell.swift */,
+				F460D60E287962F8009F3C31 /* RightArrowView.swift */,
 				F460D5DB2877270B009F3C31 /* SummonerInfoCell.swift */,
 				F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */,
 				F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */,
@@ -398,6 +401,7 @@
 				F460D5F928786DF2009F3C31 /* UIImageView+Extensions.swift in Sources */,
 				F4FEA9D628703F8100C5CBC2 /* SummonerRouter.swift in Sources */,
 				F4FEA9E2287047D500C5CBC2 /* Game.swift in Sources */,
+				F460D60F287962F8009F3C31 /* RightArrowView.swift in Sources */,
 				F498E2EB287036E2008E647B /* SummonerViewController.swift in Sources */,
 				F4FEA9DB2870423500C5CBC2 /* GameOfSummoner.swift in Sources */,
 				F460D5F428782BAB009F3C31 /* GameTimeView.swift in Sources */,
