@@ -13,28 +13,27 @@ import RxSwift
 import SnapKit
 
 
-enum SectionType {
-    case info
-    case rankStats
-    case analysis
-    case game
-}
-
-enum SectionItem: Hashable {
-    case info(Summoner)
-    case rankStats([Int])
-    case analysis(AnalysedSummoner)
-    case game(Game)
-}
-
+// TODO: 
 struct Section: Hashable {
     var type: SectionType
     var items: [SectionItem]
+    
+    enum SectionType {
+        case info
+        case rankStats
+        case analysis
+        case game
+    }
+
+    enum SectionItem: Hashable {
+        case info(Summoner)
+        case rankStats([Int])
+        case analysis(AnalysedSummoner)
+        case game(Game)
+    }
 }
 
-
 extension Section: SectionModelType {
-    
     typealias Item = SectionItem
     
     init(original: Section, items: [Item]) {
@@ -42,7 +41,6 @@ extension Section: SectionModelType {
         self.items = items
     }
 }
-
 
 
 final class SummonerViewController: BaseViewController {
@@ -172,11 +170,12 @@ final class SummonerViewController: BaseViewController {
                 cell.configure(viewModel: self.viewModel)
                 return cell
                 
-            case .analysis:
+            case let .analysis(analysis):
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: SummonerAnalysisCell.typeName,
                     for: indexPath
                 ) as! SummonerAnalysisCell
+                cell.configure(with: analysis)
                 return cell
                 
             case let .game(game):

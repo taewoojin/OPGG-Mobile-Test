@@ -1,5 +1,5 @@
 //
-//  MostWinningView.swift
+//  MostChampionView.swift
 //  OPGG-Mobile-Test
 //
 //  Created by 진태우 on 2022/07/09.
@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class MostWinningView: UIView {
+final class MostChampionView: UIView {
 
     // MARK: UI
     
@@ -30,7 +30,6 @@ final class MostWinningView: UIView {
         super.init(frame: .zero)
         setupAttributes()
         setupLayout()
-        configure()
     }
     
     @available(*, unavailable)
@@ -63,13 +62,13 @@ final class MostWinningView: UIView {
         }
     }
     
-    private func configure() {
-        
-        for _ in 0...1 {
+    func configure(with analysis: AnalysedSummoner) {
+        contentStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        for champion in analysis.mostChampions {
             let view = WinningRateView()
+            view.configure(imageUrl: champion.imageUrl, winningRate: champion.winningRate)
             contentStackView.addArrangedSubview(view)
         }
-        
     }
     
 }

@@ -23,8 +23,8 @@
 		F460D5F928786DF2009F3C31 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5F828786DF2009F3C31 /* UIImageView+Extensions.swift */; };
 		F460D5FC28786E15009F3C31 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F460D5FB28786E15009F3C31 /* Kingfisher */; };
 		F460D5FE28786E7E009F3C31 /* ImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D5FD28786E7E009F3C31 /* ImageError.swift */; };
-		F460D603287943B0009F3C31 /* RecentGameAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D602287943B0009F3C31 /* RecentGameAnalysisView.swift */; };
-		F460D60728794894009F3C31 /* MostWinningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60628794894009F3C31 /* MostWinningView.swift */; };
+		F460D603287943B0009F3C31 /* RecentMatchesAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D602287943B0009F3C31 /* RecentMatchesAnalysisView.swift */; };
+		F460D60728794894009F3C31 /* MostChampionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60628794894009F3C31 /* MostChampionView.swift */; };
 		F460D609287949DD009F3C31 /* WinningRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D608287949DD009F3C31 /* WinningRateView.swift */; };
 		F460D60B28794FD9009F3C31 /* MostPositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60A28794FD8009F3C31 /* MostPositionView.swift */; };
 		F460D60D28795A37009F3C31 /* ImageViewWithLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */; };
@@ -81,8 +81,8 @@
 		F460D5F628782FF0009F3C31 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		F460D5F828786DF2009F3C31 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		F460D5FD28786E7E009F3C31 /* ImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageError.swift; sourceTree = "<group>"; };
-		F460D602287943B0009F3C31 /* RecentGameAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentGameAnalysisView.swift; sourceTree = "<group>"; };
-		F460D60628794894009F3C31 /* MostWinningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostWinningView.swift; sourceTree = "<group>"; };
+		F460D602287943B0009F3C31 /* RecentMatchesAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMatchesAnalysisView.swift; sourceTree = "<group>"; };
+		F460D60628794894009F3C31 /* MostChampionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostChampionView.swift; sourceTree = "<group>"; };
 		F460D608287949DD009F3C31 /* WinningRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningRateView.swift; sourceTree = "<group>"; };
 		F460D60A28794FD8009F3C31 /* MostPositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPositionView.swift; sourceTree = "<group>"; };
 		F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewWithLevel.swift; sourceTree = "<group>"; };
@@ -184,8 +184,8 @@
 		F460D60128794341009F3C31 /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
-				F460D602287943B0009F3C31 /* RecentGameAnalysisView.swift */,
-				F460D60628794894009F3C31 /* MostWinningView.swift */,
+				F460D602287943B0009F3C31 /* RecentMatchesAnalysisView.swift */,
+				F460D60628794894009F3C31 /* MostChampionView.swift */,
 				F460D608287949DD009F3C31 /* WinningRateView.swift */,
 				F460D60A28794FD8009F3C31 /* MostPositionView.swift */,
 			);
@@ -440,13 +440,13 @@
 				F460D5F428782BAB009F3C31 /* GameTimeView.swift in Sources */,
 				F4FEA9E628706AA300C5CBC2 /* SummonerRepository.swift in Sources */,
 				F4FEA9DE287047B200C5CBC2 /* OPBadge.swift in Sources */,
-				F460D60728794894009F3C31 /* MostWinningView.swift in Sources */,
+				F460D60728794894009F3C31 /* MostChampionView.swift in Sources */,
 				F4FEA9F32870708C00C5CBC2 /* UIViewController+Rx.swift in Sources */,
 				F4B9270D287A6B4B0058AFA4 /* ImageViewWithOP.swift in Sources */,
 				F4FEA9F128706D6E00C5CBC2 /* SummonerViewModel.swift in Sources */,
 				F460D5DC2877270B009F3C31 /* SummonerInfoCell.swift in Sources */,
 				F4B92713287A9A020058AFA4 /* GamePosition.swift in Sources */,
-				F460D603287943B0009F3C31 /* RecentGameAnalysisView.swift in Sources */,
+				F460D603287943B0009F3C31 /* RecentMatchesAnalysisView.swift in Sources */,
 				F498E2E7287036E2008E647B /* AppDelegate.swift in Sources */,
 				F4B9270F287A963B0058AFA4 /* GameSummary.swift in Sources */,
 				F460D5FE28786E7E009F3C31 /* ImageError.swift in Sources */,

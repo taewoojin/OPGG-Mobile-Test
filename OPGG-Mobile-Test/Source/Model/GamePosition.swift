@@ -15,6 +15,8 @@ struct GamePosition: Decodable, Hashable {
     let positionName: String
     let positionType: GamePositionType?
     
+    let winningRate: Int
+    
     enum CodingKeys: String, CodingKey {
         case games
         case wins
@@ -32,14 +34,14 @@ struct GamePosition: Decodable, Hashable {
         
         let typeString = try values.decode(String.self, forKey: .positionType)
         positionType = GamePositionType(rawValue: typeString)
+        
+        winningRate = Int.winningRate(wins: wins, losses: losses)
     }
 }
 
 extension GamePosition: Comparable {
     static func < (lhs: GamePosition, rhs: GamePosition) -> Bool {
-        let lhsWinningRate = Int.winningRate(wins: lhs.wins, losses: lhs.losses)
-        let rhsWinningRate = Int.winningRate(wins: rhs.wins, losses: rhs.losses)
-        return lhsWinningRate < rhsWinningRate
+        return lhs.winningRate > rhs.winningRate
     }
 }
 

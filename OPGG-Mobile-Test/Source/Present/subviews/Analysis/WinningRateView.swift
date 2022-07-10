@@ -30,7 +30,6 @@ final class WinningRateView: UIView {
         super.init(frame: .zero)
         setupAttributes()
         setupLayout()
-        configure()
     }
     
     @available(*, unavailable)
@@ -46,7 +45,6 @@ final class WinningRateView: UIView {
         containerStackView.alignment = .center
         containerStackView.spacing = 4
         
-        imageView.backgroundColor = .systemRed
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = imageHeight / 2
         
@@ -66,11 +64,16 @@ final class WinningRateView: UIView {
         }
     }
     
-    private func configure() {
-//        imageView.loadImage(urlString: )
-        rateLabel.text = "100%"
-
-        // TODO: rateLabel 색상 처리
+    func configure(imageUrl: String, winningRate: Int) {
+        imageView.loadImage(urlString: imageUrl)
+        rateLabel.text = "\(winningRate)%"
+        rateLabel.textColor = winningRate == 100 ? #colorLiteral(red: 0.9098039216, green: 0.2509803922, blue: 0.3411764706, alpha: 1) : #colorLiteral(red: 0.1176470588, green: 0.1254901961, blue: 0.1333333333, alpha: 1)
+    }
+    
+    func configure(image: UIImage?, winningRate: Int) {
+        imageView.image = image
+        rateLabel.text = "\(winningRate)%"
+        rateLabel.textColor = winningRate == 100 ? #colorLiteral(red: 0.9098039216, green: 0.2509803922, blue: 0.3411764706, alpha: 1) : #colorLiteral(red: 0.1176470588, green: 0.1254901961, blue: 0.1333333333, alpha: 1)
     }
     
 }

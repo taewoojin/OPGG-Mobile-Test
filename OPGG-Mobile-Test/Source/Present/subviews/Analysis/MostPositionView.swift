@@ -30,7 +30,6 @@ final class MostPositionView: UIView {
         super.init(frame: .zero)
         setupAttributes()
         setupLayout()
-        configure()
     }
     
     @available(*, unavailable)
@@ -60,9 +59,9 @@ final class MostPositionView: UIView {
         }
     }
     
-    private func configure() {
-        
-        
+    func configure(with analysis: AnalysedSummoner) {
+        guard let position = analysis.mostPosition else { return }
+        rateView.configure(image: position.positionType?.image, winningRate: position.winningRate)
     }
     
 }

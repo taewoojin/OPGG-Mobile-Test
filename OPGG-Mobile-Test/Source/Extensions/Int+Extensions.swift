@@ -10,6 +10,7 @@ import UIKit
 extension Int {
 
     static func winningRate(wins: Int, losses: Int) -> Int {
+        guard wins > 0 || losses > 0 else { return 0 }
         return Int(round(CGFloat(wins) / CGFloat(wins + losses) * 100))
     }
     

@@ -15,22 +15,17 @@ final class SummonerAnalysisCell: UICollectionViewCell {
     // MARK: UI
     
     private lazy var containerStackView = UIStackView(arrangedSubviews: [
-        recentGameAnalysisView,
+        recentMatchesAnalysisView,
         UIView(),
-        mostWinningView,
+        mostChampionView,
         mostPositionView
     ])
     
-    private let recentGameAnalysisView = RecentGameAnalysisView()
+    private let recentMatchesAnalysisView = RecentMatchesAnalysisView()
     
-    private let mostWinningView = MostWinningView()
+    private let mostChampionView = MostChampionView()
     
     private let mostPositionView = MostPositionView()
-    
-    
-    // MARK: Properties
-    
-    private var disposeBag = DisposeBag()
     
     
     // MARK: Initializing
@@ -60,7 +55,6 @@ final class SummonerAnalysisCell: UICollectionViewCell {
     
     private func setupAttributes() {
         backgroundColor = .white
-        
     }
     
     private func setupLayout() {
@@ -68,6 +62,12 @@ final class SummonerAnalysisCell: UICollectionViewCell {
         containerStackView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(12)
         }
+    }
+    
+    func configure(with analysis: AnalysedSummoner) {
+        recentMatchesAnalysisView.configure(with: analysis)
+        mostChampionView.configure(with: analysis)
+        mostPositionView.configure(with: analysis)
     }
     
 }

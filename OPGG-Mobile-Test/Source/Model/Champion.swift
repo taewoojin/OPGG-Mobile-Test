@@ -16,9 +16,28 @@ struct GameChampion: Decodable, Hashable, Comparable {
     let wins: Int
     let losses: Int
     
+    let winningRate: Int
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case name, imageUrl, games, kills, deaths, assists, wins, losses
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name = try values.decode(String.self, forKey: .name)
+        imageUrl = try values.decode(String.self, forKey: .imageUrl)
+        games = try values.decode(Int.self, forKey: .games)
+        kills = try values.decode(Int.self, forKey: .kills)
+        deaths = try values.decode(Int.self, forKey: .deaths)
+        assists = try values.decode(Int.self, forKey: .assists)
+        wins = try values.decode(Int.self, forKey: .wins)
+        losses = try values.decode(Int.self, forKey: .losses)
+        
+        winningRate = Int.winningRate(wins: wins, losses: losses)
+    }
+    
     static func < (lhs: GameChampion, rhs: GameChampion) -> Bool {
-        let lhsWinningRate = Int.winningRate(wins: lhs.wins, losses: lhs.losses)
-        let rhsWinningRate = Int.winningRate(wins: rhs.wins, losses: rhs.losses)
-        return lhsWinningRate < rhsWinningRate
+        return lhs.winningRate > rhs.winningRate
     }
 }

@@ -1,5 +1,5 @@
 //
-//  RecentGameAnalysisView.swift
+//  RecentMatchesAnalysisView.swift
 //  OPGG-Mobile-Test
 //
 //  Created by 진태우 on 2022/07/09.
@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class RecentGameAnalysisView: UIView {
+final class RecentMatchesAnalysisView: UIView {
 
     // MARK: UI
     
@@ -25,11 +25,11 @@ final class RecentGameAnalysisView: UIView {
     
     private let scoreLabel = ScoreLabel()
     
-    private lazy var kdaStackView = UIStackView(arrangedSubviews: [kdaLabel, winRateLabel])
+    private lazy var kdaStackView = UIStackView(arrangedSubviews: [kdaLabel, winningRateLabel])
     
     private let kdaLabel = UILabel()
     
-    private let winRateLabel = UILabel()
+    private let winningRateLabel = UILabel()
     
     
     // MARK: Properties
@@ -42,7 +42,6 @@ final class RecentGameAnalysisView: UIView {
         super.init(frame: .zero)
         setupAttributes()
         setupLayout()
-        configure()
     }
     
     @available(*, unavailable)
@@ -70,8 +69,8 @@ final class RecentGameAnalysisView: UIView {
         kdaLabel.textColor = #colorLiteral(red: 0.03921568627, green: 0.7725490196, blue: 0.5568627451, alpha: 1)
         kdaLabel.font = .systemFont(ofSize: 10)
         
-        winRateLabel.textColor = #colorLiteral(red: 0.9098039216, green: 0.2509803922, blue: 0.3411764706, alpha: 1)
-        winRateLabel.font = .systemFont(ofSize: 10)
+        winningRateLabel.textColor = #colorLiteral(red: 0.9098039216, green: 0.2509803922, blue: 0.3411764706, alpha: 1)
+        winningRateLabel.font = .systemFont(ofSize: 10)
     }
     
     private func setupLayout() {
@@ -87,11 +86,15 @@ final class RecentGameAnalysisView: UIView {
         }
     }
     
-    private func configure() {
-        winLoseLabel.text = "11승 9패"
-        scoreLabel.configure(kill: 1, death: 1, assist: 1)
-        kdaLabel.text = "3.65:1"
-        winRateLabel.text = "(66%)"
+    func configure(with analysis: AnalysedSummoner) {
+        winLoseLabel.text = "\(analysis.summary.wins)승 \(analysis.summary.losses)패"
+        scoreLabel.configure(
+            kill: analysis.summary.kills,
+            death: analysis.summary.deaths,
+            assist: analysis.summary.assists
+        )
+        kdaLabel.text = "\(analysis.kda):1"
+        winningRateLabel.text = "(\(analysis.winningRate)%)"
     }
     
 }
