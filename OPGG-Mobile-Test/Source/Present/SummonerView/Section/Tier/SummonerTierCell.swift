@@ -40,13 +40,6 @@ final class SummonerTierCell: UICollectionViewCell {
     private let arrowView = RightArrowView()
     
     
-    // MARK: Properties
-    
-    private weak var viewModel: SummonerViewModel?
-    
-    private var disposeBag = DisposeBag()
-    
-    
     // MARK: Initializing
     
     override init(frame: CGRect) {

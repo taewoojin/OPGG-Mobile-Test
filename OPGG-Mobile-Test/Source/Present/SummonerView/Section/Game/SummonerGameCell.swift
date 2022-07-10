@@ -34,6 +34,7 @@ final class SummonerGameCell: UICollectionViewCell {
     private var game: Game?
     
     
+    // MARK: Initializing
     
     override init(frame: CGRect) {
         super.init(frame: frame)

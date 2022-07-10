@@ -151,13 +151,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		F460D5EA28780F21009F3C31 /* subviews */ = {
+		F460D5EA28780F21009F3C31 /* Section */ = {
 			isa = PBXGroup;
 			children = (
 				F460D60128794341009F3C31 /* Analysis */,
-				F460D60028794336009F3C31 /* game */,
+				F460D60028794336009F3C31 /* Game */,
+				F4B9271F287AE75D0058AFA4 /* Info */,
+				F4B9271E287AE5E00058AFA4 /* Tier */,
 			);
-			path = subviews;
+			path = Section;
 			sourceTree = "<group>";
 		};
 		F460D5F528782FE2009F3C31 /* Components */ = {
@@ -169,25 +171,28 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		F460D60028794336009F3C31 /* game */ = {
+		F460D60028794336009F3C31 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				F460D5EB28780F46009F3C31 /* GameResultView.swift */,
 				F460D5ED28781715009F3C31 /* GameBottomInfoView.swift */,
-				F460D5EF28782099009F3C31 /* GameTopInfoView.swift */,
-				F460D5F128782707009F3C31 /* KDAInfoView.swift */,
+				F460D5EB28780F46009F3C31 /* GameResultView.swift */,
 				F460D5F328782BAA009F3C31 /* GameTimeView.swift */,
+				F460D5EF28782099009F3C31 /* GameTopInfoView.swift */,
+				F4B9270C287A6B4B0058AFA4 /* ImageViewWithOP.swift */,
+				F460D5F128782707009F3C31 /* KDAInfoView.swift */,
+				F460D5E828780CEF009F3C31 /* SummonerGameCell.swift */,
 			);
-			path = game;
+			path = Game;
 			sourceTree = "<group>";
 		};
 		F460D60128794341009F3C31 /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
-				F460D602287943B0009F3C31 /* RecentMatchesAnalysisView.swift */,
 				F460D60628794894009F3C31 /* MostChampionView.swift */,
-				F460D608287949DD009F3C31 /* WinningRateView.swift */,
 				F460D60A28794FD8009F3C31 /* MostPositionView.swift */,
+				F460D602287943B0009F3C31 /* RecentMatchesAnalysisView.swift */,
+				F460D5E6287806F2009F3C31 /* SummonerAnalysisCell.swift */,
+				F460D608287949DD009F3C31 /* WinningRateView.swift */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -230,9 +235,9 @@
 		F498E2FB2870376C008E647B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				F460D5F528782FE2009F3C31 /* Components */,
 				F498E2E6287036E2008E647B /* AppDelegate.swift */,
 				F4FEA9D228703EF400C5CBC2 /* Constant.swift */,
+				F460D5F528782FE2009F3C31 /* Components */,
 				F4FEA9DC287047A700C5CBC2 /* Enum */,
 				F460D5DD287727B2009F3C31 /* Extensions */,
 				F4FEA9D72870407000C5CBC2 /* Model */,
@@ -249,19 +254,38 @@
 		F498E2FC28703776008E647B /* Present */ = {
 			isa = PBXGroup;
 			children = (
-				F460D5EA28780F21009F3C31 /* subviews */,
-				F498E2EA287036E2008E647B /* SummonerViewController.swift */,
-				F460D5E828780CEF009F3C31 /* SummonerGameCell.swift */,
-				F460D5E6287806F2009F3C31 /* SummonerAnalysisCell.swift */,
-				F460D5E42877FF88009F3C31 /* SummonerTierSectionCell.swift */,
-				F460D5E02877D01A009F3C31 /* SummonerTierCell.swift */,
-				F460D60E287962F8009F3C31 /* RightArrowView.swift */,
-				F460D5DB2877270B009F3C31 /* SummonerInfoCell.swift */,
-				F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */,
-				F4B9270C287A6B4B0058AFA4 /* ImageViewWithOP.swift */,
 				F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */,
+				F4B92720287AE7A20058AFA4 /* SummonerView */,
 			);
 			path = Present;
+			sourceTree = "<group>";
+		};
+		F4B9271E287AE5E00058AFA4 /* Tier */ = {
+			isa = PBXGroup;
+			children = (
+				F460D60E287962F8009F3C31 /* RightArrowView.swift */,
+				F460D5E02877D01A009F3C31 /* SummonerTierCell.swift */,
+				F460D5E42877FF88009F3C31 /* SummonerTierSectionCell.swift */,
+			);
+			path = Tier;
+			sourceTree = "<group>";
+		};
+		F4B9271F287AE75D0058AFA4 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */,
+				F460D5DB2877270B009F3C31 /* SummonerInfoCell.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		F4B92720287AE7A20058AFA4 /* SummonerView */ = {
+			isa = PBXGroup;
+			children = (
+				F498E2EA287036E2008E647B /* SummonerViewController.swift */,
+				F460D5EA28780F21009F3C31 /* Section */,
+			);
+			path = SummonerView;
 			sourceTree = "<group>";
 		};
 		F4FEA9D428703F7000C5CBC2 /* Router */ = {

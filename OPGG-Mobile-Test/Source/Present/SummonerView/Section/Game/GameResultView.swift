@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class GameResultView: UIView {
 
     // MARK: UI
@@ -51,7 +52,6 @@ final class GameResultView: UIView {
     }
     
     private func setupLayout() {
-        
         addSubview(stackView)
         stackView.snp.makeConstraints {
             $0.leading.trailing.centerY.equalToSuperview()
