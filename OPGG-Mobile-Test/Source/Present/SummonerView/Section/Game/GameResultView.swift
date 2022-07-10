@@ -12,13 +12,13 @@ final class GameResultView: UIView {
 
     // MARK: UI
     
-    private lazy var stackView = UIStackView(arrangedSubviews: [resultLabel, separatorView, scoreLabel])
+    private lazy var stackView = UIStackView(arrangedSubviews: [resultLabel, separatorView, gameTimeLabel])
     
     private let resultLabel = UILabel()
     
     private let separatorView = UIView()
     
-    private let scoreLabel = UILabel()
+    private let gameTimeLabel = UILabel()
     
     
     // MARK: Initializing
@@ -47,8 +47,8 @@ final class GameResultView: UIView {
         
         separatorView.backgroundColor = .white.withAlphaComponent(0.4)
         
-        scoreLabel.textColor = .white
-        scoreLabel.font = .systemFont(ofSize: 12)
+        gameTimeLabel.textColor = .white
+        gameTimeLabel.font = .systemFont(ofSize: 12)
     }
     
     private func setupLayout() {
@@ -66,7 +66,7 @@ final class GameResultView: UIView {
     func configure(with game: Game) {
         backgroundColor = game.isWin ? .systemBlue : .systemRed
         resultLabel.text = game.isWin ? "승" : "패"
-        scoreLabel.text = "1:1"
+        gameTimeLabel.text = game.gameLength.convertToGametime
     }
     
 }

@@ -20,4 +20,12 @@ extension Int {
         return numberFormatter.string(from: NSNumber(value: self))!
     }
     
+    var convertToGametime: String {
+        let dateComponents = DateComponents(second: self)
+        let date = Calendar.current.date(from: dateComponents)!
+        let formatter = DateFormatter()
+        formatter.dateFormat = "mm:ss"
+        return formatter.string(from: date)
+    }
+    
 }
