@@ -83,9 +83,9 @@ final class RecentMatchesAnalysisView: UIView {
     func configure(with analysis: AnalysedSummoner) {
         winLoseLabel.text = "\(analysis.summary.wins)승 \(analysis.summary.losses)패"
         scoreLabel.configure(
-            kill: analysis.summary.kills,
-            death: analysis.summary.deaths,
-            assist: analysis.summary.assists
+            kill: analysis.averageKills,
+            death: analysis.averageDeaths,
+            assist: analysis.averageAssists
         )
         kdaLabel.text = "\(analysis.kda):1"
         winningRateLabel.text = "(\(analysis.winningRate)%)"

@@ -10,7 +10,7 @@ import UIKit
 
 final class ScoreLabel: UILabel {
     
-    func configure(kill: Int, death: Int, assist: Int) {
+    func configure<T>(kill: T, death: T, assist: T) {
         let attributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.black
         ]

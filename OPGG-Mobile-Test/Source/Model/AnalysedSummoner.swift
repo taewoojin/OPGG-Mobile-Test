@@ -16,14 +16,18 @@ struct AnalysedSummoner: Hashable {
     let mostChampions: [GameChampion]
     let mostPosition: GamePosition?
     
+    let averageKills: Double
+    let averageDeaths: Double
+    let averageAssists: Double
+    
     
     init(summary: GameSummary, champions: [GameChampion], positions: [GamePosition]) {
         self.summary = summary
         
-        let totalGames = Double(summary.wins + summary.losses)
-        let averageKills = (Double(summary.kills) / totalGames).round(decimal: 1)
-        let averageDeaths = (Double(summary.deaths) / totalGames).round(decimal: 1)
-        let averageAssists = (Double(summary.assists) / totalGames).round(decimal: 1)
+        let totalMatches = Double(summary.wins + summary.losses)
+        self.averageKills = (Double(summary.kills) / totalMatches).round(decimal: 1)
+        self.averageDeaths = (Double(summary.deaths) / totalMatches).round(decimal: 1)
+        self.averageAssists = (Double(summary.assists) / totalMatches).round(decimal: 1)
         
         self.kda = Double.kda(kill: averageKills, death: averageDeaths, assist: averageAssists)
         self.winningRate = Int.winningRate(wins: summary.wins, losses: summary.losses)
