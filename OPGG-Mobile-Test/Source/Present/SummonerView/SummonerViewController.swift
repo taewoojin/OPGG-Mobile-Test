@@ -147,6 +147,13 @@ final class SummonerViewController: BaseViewController {
             .distinctUntilChanged()
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+        viewModel.currentStore
+            .map { $0.error?.message }
+            .filterNil()
+            .distinctUntilChanged()
+            .bind(to: rx.showAlert)
+            .disposed(by: disposeBag)
     }
     
     private func setupDatasource() {

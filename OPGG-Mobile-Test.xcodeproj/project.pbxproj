@@ -44,6 +44,10 @@
 		F4B9271B287AAB630058AFA4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9271A287AAB630058AFA4 /* Array+Extensions.swift */; };
 		F4B9271D287AAD540058AFA4 /* MatchesOfSummoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9271C287AAD540058AFA4 /* MatchesOfSummoner.swift */; };
 		F4B92723287AE87F0058AFA4 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B92722287AE87F0058AFA4 /* League.swift */; };
+		F4B92725287AE9B70058AFA4 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B92724287AE9B70058AFA4 /* ResponseError.swift */; };
+		F4B92727287AE9D10058AFA4 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B92726287AE9D10058AFA4 /* BaseError.swift */; };
+		F4B92729287AE9F60058AFA4 /* JSONError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B92728287AE9F60058AFA4 /* JSONError.swift */; };
+		F4B9272B287AEDB20058AFA4 /* MoyaError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9272A287AEDB20058AFA4 /* MoyaError+Extensions.swift */; };
 		F4FEA9BF2870392900C5CBC2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */; };
 		F4FEA9C22870396400C5CBC2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9C12870396400C5CBC2 /* SnapKit */; };
 		F4FEA9C52870398900C5CBC2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9C42870398900C5CBC2 /* RxCocoa */; };
@@ -104,6 +108,10 @@
 		F4B9271A287AAB630058AFA4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		F4B9271C287AAD540058AFA4 /* MatchesOfSummoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesOfSummoner.swift; sourceTree = "<group>"; };
 		F4B92722287AE87F0058AFA4 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
+		F4B92724287AE9B70058AFA4 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		F4B92726287AE9D10058AFA4 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
+		F4B92728287AE9F60058AFA4 /* JSONError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONError.swift; sourceTree = "<group>"; };
+		F4B9272A287AEDB20058AFA4 /* MoyaError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaError+Extensions.swift"; sourceTree = "<group>"; };
 		F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F4FEA9D228703EF400C5CBC2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F4FEA9D528703F8100C5CBC2 /* SummonerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRouter.swift; sourceTree = "<group>"; };
@@ -308,6 +316,7 @@
 				F4B92714287A9F900058AFA4 /* Matches.swift */,
 				F4B9271C287AAD540058AFA4 /* MatchesOfSummoner.swift */,
 				F4FEA9D82870407800C5CBC2 /* Summoner.swift */,
+				F4B92724287AE9B70058AFA4 /* ResponseError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -349,8 +358,11 @@
 		F4FEA9EA28706BFF00C5CBC2 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				F4FEA9EB28706C0600C5CBC2 /* NetworkError.swift */,
+				F4B92726287AE9D10058AFA4 /* BaseError.swift */,
 				F460D5FD28786E7E009F3C31 /* ImageError.swift */,
+				F4B92728287AE9F60058AFA4 /* JSONError.swift */,
+				F4B9272A287AEDB20058AFA4 /* MoyaError+Extensions.swift */,
+				F4FEA9EB28706C0600C5CBC2 /* NetworkError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -453,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F460D5F928786DF2009F3C31 /* UIImageView+Extensions.swift in Sources */,
+				F4B92725287AE9B70058AFA4 /* ResponseError.swift in Sources */,
 				F4B9271B287AAB630058AFA4 /* Array+Extensions.swift in Sources */,
 				F4B92715287A9F900058AFA4 /* Matches.swift in Sources */,
 				F4FEA9D628703F8100C5CBC2 /* SummonerRouter.swift in Sources */,
@@ -466,6 +479,7 @@
 				F4FEA9DE287047B200C5CBC2 /* OPBadge.swift in Sources */,
 				F460D60728794894009F3C31 /* MostChampionView.swift in Sources */,
 				F4FEA9F32870708C00C5CBC2 /* UIViewController+Rx.swift in Sources */,
+				F4B92729287AE9F60058AFA4 /* JSONError.swift in Sources */,
 				F4B9270D287A6B4B0058AFA4 /* ImageViewWithOP.swift in Sources */,
 				F4FEA9F128706D6E00C5CBC2 /* SummonerViewModel.swift in Sources */,
 				F460D5DC2877270B009F3C31 /* SummonerInfoCell.swift in Sources */,
@@ -482,11 +496,13 @@
 				F460D5F028782099009F3C31 /* GameTopInfoView.swift in Sources */,
 				F4B92711287A97360058AFA4 /* AnalysedSummoner.swift in Sources */,
 				F460D5F228782707009F3C31 /* KDAInfoView.swift in Sources */,
+				F4B92727287AE9D10058AFA4 /* BaseError.swift in Sources */,
 				F460D5E52877FF88009F3C31 /* SummonerTierSectionCell.swift in Sources */,
 				F4FEA9BF2870392900C5CBC2 /* BaseViewController.swift in Sources */,
 				F4FEA9D328703EF500C5CBC2 /* Constant.swift in Sources */,
 				F460D5F728782FF0009F3C31 /* PaddingLabel.swift in Sources */,
 				F460D5EE28781715009F3C31 /* GameBottomInfoView.swift in Sources */,
+				F4B9272B287AEDB20058AFA4 /* MoyaError+Extensions.swift in Sources */,
 				F460D60D28795A37009F3C31 /* ImageViewWithLevel.swift in Sources */,
 				F4FEA9EC28706C0600C5CBC2 /* NetworkError.swift in Sources */,
 				F4FEA9E0287047D000C5CBC2 /* Champion.swift in Sources */,

@@ -22,6 +22,7 @@ final class SummonerViewModel {
         case setLeagues([League])
         case setAnalysis(AnalysedSummoner)
         case setGames([Game])
+        case setError(ResponseError)
     }
     
     struct Store {
@@ -33,6 +34,7 @@ final class SummonerViewModel {
         ]
         
         var games: [Game] = []
+        var error: ResponseError?
     }
     
     
@@ -78,9 +80,10 @@ final class SummonerViewModel {
                         )
                         
                     case .failure(let error):
-                        // TODO: 상황에 따른 에러 처리
-                        return .empty()
-                        
+                        // FIXME: 상황에 따른 에러 처리
+                        guard let error = error as? BaseError else { return .empty() }
+                        let responseError = ResponseError(message: error.errorDescription)
+                        return .just(.setError(responseError))
                     }
                 }
             
@@ -97,8 +100,10 @@ final class SummonerViewModel {
                         )
 
                     case .failure(let error):
-                        // TODO: 상황에 따른 에러 처리
-                        return .empty()
+                        // FIXME: 상황에 따른 에러 처리
+                        guard let error = error as? BaseError else { return .empty() }
+                        let responseError = ResponseError(message: error.errorDescription)
+                        return .just(.setError(responseError))
 
                     }
                 }
@@ -113,8 +118,10 @@ final class SummonerViewModel {
                         return .just(.setGames(self.store.games + matches.games))
 
                     case .failure(let error):
-                        // TODO: 상황에 따른 에러 처리
-                        return .empty()
+                        // FIXME: 상황에 따른 에러 처리
+                        guard let error = error as? BaseError else { return .empty() }
+                        let responseError = ResponseError(message: error.errorDescription)
+                        return .just(.setError(responseError))
 
                     }
                 }
@@ -133,10 +140,12 @@ final class SummonerViewModel {
         case let .setAnalysis(analysis):
             store.sections[2] = Section(type: .analysis, items: [.analysis(analysis)])
             
-        case .setGames(let games):
+        case let .setGames(games):
             store.games = games
             store.sections[3] = Section(type: .game, items: games.map({ .game($0) }))
             
+        case let .setError(error):
+            store.error = error
         }
         
         return .just(store)

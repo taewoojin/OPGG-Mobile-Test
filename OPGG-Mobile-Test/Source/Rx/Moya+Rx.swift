@@ -16,11 +16,16 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Moya.Response
     
     func asResult<T: Decodable>(_ type: T.Type) -> PrimitiveSequence<Trait, Result<T, Error>> {
         return self
+            .flatMap { response in
+                if let networkError = NetworkError(rawValue: response.statusCode) {
+                    throw networkError
+                }
+                
+                return .just(response)
+            }
             .map(T.self)
             .map { .success($0) }
-            .catch { error in
-                return .just(.failure(error))
-            }
+            .catch { .just(.failure($0)) }
     }
     
     // json 데이터에서 원하는 key 값으로 unwrapping 하는 함수
@@ -36,7 +41,7 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Moya.Response
                 }
                 
                 guard let objectData = try? JSONSerialization.data(withJSONObject: object) else {
-                    throw NetworkError.objetToDataMapping
+                    throw JSONError.objetToDataMapping
                 }
                 
                 return .just(Moya.Response(statusCode: response.statusCode, data: objectData))
