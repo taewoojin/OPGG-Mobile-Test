@@ -38,7 +38,7 @@ struct Game: Decodable, Hashable {
             let kill: Int
             let death: Int
             let assist: Int
-            let opScoreBadge: OPScoreBadge?
+            let opScoreBadge: OPBadge?
             let contributionForKillRate: String     // 킬 관여율
             let largestMultiKillString: String
             
@@ -53,7 +53,7 @@ struct Game: Decodable, Hashable {
                 assist = try values.decode(Int.self, forKey: .assist)
                 
                 let opBadgeString = try values.decode(String.self, forKey: .opScoreBadge)
-                opScoreBadge = OPScoreBadge(rawValue: opBadgeString) ?? nil
+                opScoreBadge = OPBadge(rawValue: opBadgeString) ?? nil
                 
                 contributionForKillRate = try values.decode(String.self, forKey: .contributionForKillRate)
                 largestMultiKillString = try values.decode(String.self, forKey: .largestMultiKillString)

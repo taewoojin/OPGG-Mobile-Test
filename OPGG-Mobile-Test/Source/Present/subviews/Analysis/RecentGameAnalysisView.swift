@@ -23,7 +23,7 @@ final class RecentGameAnalysisView: UIView {
     
     private let winLoseLabel = UILabel()
     
-    private let scoreLabel = UILabel()
+    private let scoreLabel = ScoreLabel()
     
     private lazy var kdaStackView = UIStackView(arrangedSubviews: [kdaLabel, winRateLabel])
     
@@ -34,7 +34,6 @@ final class RecentGameAnalysisView: UIView {
     
     // MARK: Properties
     
-//    private let game: Game
     
     
     // MARK: Initializing
@@ -66,7 +65,6 @@ final class RecentGameAnalysisView: UIView {
         winLoseLabel.textColor = #colorLiteral(red: 0.5960784314, green: 0.6274509804, blue: 0.6549019608, alpha: 1)
         winLoseLabel.font = .systemFont(ofSize: 10)
         
-        scoreLabel.textColor = .black
         scoreLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         kdaLabel.textColor = #colorLiteral(red: 0.03921568627, green: 0.7725490196, blue: 0.5568627451, alpha: 1)
@@ -91,7 +89,7 @@ final class RecentGameAnalysisView: UIView {
     
     private func configure() {
         winLoseLabel.text = "11승 9패"
-        scoreLabel.text = "1 / 1 / 1"
+        scoreLabel.configure(kill: 1, death: 1, assist: 1)
         kdaLabel.text = "3.65:1"
         winRateLabel.text = "(66%)"
     }

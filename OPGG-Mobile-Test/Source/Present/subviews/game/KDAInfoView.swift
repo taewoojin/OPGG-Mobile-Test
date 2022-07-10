@@ -12,9 +12,9 @@ final class KDAInfoView: UIView {
 
     // MARK: UI
     
-    private lazy var containerStackView = UIStackView(arrangedSubviews: [kdaLabel, contributionForKillRateLabel])
+    private lazy var containerStackView = UIStackView(arrangedSubviews: [scoreLabel, contributionForKillRateLabel])
     
-    private let kdaLabel = UILabel()
+    private let scoreLabel = ScoreLabel()
     
     private let contributionForKillRateLabel = UILabel()
     
@@ -40,8 +40,7 @@ final class KDAInfoView: UIView {
         containerStackView.alignment = .leading
         containerStackView.spacing = 2
         
-        kdaLabel.textColor = .black
-        kdaLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        scoreLabel.font = .systemFont(ofSize: 16, weight: .bold)
         
         contributionForKillRateLabel.textColor = .systemGray
         contributionForKillRateLabel.font = .systemFont(ofSize: 12)
@@ -58,7 +57,7 @@ final class KDAInfoView: UIView {
         let kill = game.stats.general.kill
         let death = game.stats.general.death
         let assist = game.stats.general.assist
-        kdaLabel.text = "\(kill) / \(death) / \(assist)"
+        scoreLabel.configure(kill: kill, death: death, assist: assist)
         
         contributionForKillRateLabel.text = "킬관여 \(game.stats.general.contributionForKillRate)"
     }

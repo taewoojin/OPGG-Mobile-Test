@@ -13,12 +13,12 @@ final class GameTopInfoView: UIView {
     // MARK: UI
     
     private lazy var containerStackView = UIStackView(arrangedSubviews: [
-        charactorImageView,
+        charactorThumbnailView,
         traitsStackView,
         kdaInfoView
     ])
     
-    private let charactorImageView = UIImageView()
+    private let charactorThumbnailView = ImageViewWithOP()
     
     private lazy var traitsStackView = UIStackView(arrangedSubviews: [spellStackView, peakStackView])
     
@@ -59,10 +59,9 @@ final class GameTopInfoView: UIView {
         peakStackView.axis = .vertical
         peakStackView.spacing = 2
         
-        charactorImageView.backgroundColor = .systemGray
-        charactorImageView.contentMode = .scaleAspectFill
-        charactorImageView.layer.masksToBounds = true
-        charactorImageView.layer.cornerRadius = 20
+//        charactorImageView.backgroundColor = .systemGray
+//        charactorImageView.contentMode = .scaleAspectFill
+//        charactorImageView.layer.masksToBounds = true
     }
     
     private func setupLayout() {
@@ -77,7 +76,7 @@ final class GameTopInfoView: UIView {
             $0.top.trailing.equalToSuperview()
         }
         
-        charactorImageView.snp.makeConstraints {
+        charactorThumbnailView.snp.makeConstraints {
             $0.width.height.equalTo(40)
         }
     }
@@ -86,7 +85,7 @@ final class GameTopInfoView: UIView {
         kdaInfoView.configure(with: game)
         gameTimeView.configure(with: game)
         
-        charactorImageView.loadImage(urlString: game.champion.imageUrl)
+        charactorThumbnailView.configure(imageUrl: game.champion.imageUrl, opBadge: game.stats.general.opScoreBadge)
         
         spellStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         for spell in game.spells {

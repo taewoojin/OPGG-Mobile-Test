@@ -33,6 +33,8 @@
 		F498E2EB287036E2008E647B /* SummonerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498E2EA287036E2008E647B /* SummonerViewController.swift */; };
 		F498E2F0287036E4008E647B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F498E2EF287036E4008E647B /* Assets.xcassets */; };
 		F498E2F3287036E4008E647B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F498E2F1287036E4008E647B /* LaunchScreen.storyboard */; };
+		F4B9270B2879CCCB0058AFA4 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9270A2879CCCB0058AFA4 /* ScoreLabel.swift */; };
+		F4B9270D287A6B4B0058AFA4 /* ImageViewWithOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9270C287A6B4B0058AFA4 /* ImageViewWithOP.swift */; };
 		F4FEA9BF2870392900C5CBC2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */; };
 		F4FEA9C22870396400C5CBC2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9C12870396400C5CBC2 /* SnapKit */; };
 		F4FEA9C52870398900C5CBC2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9C42870398900C5CBC2 /* RxCocoa */; };
@@ -45,7 +47,7 @@
 		F4FEA9D628703F8100C5CBC2 /* SummonerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9D528703F8100C5CBC2 /* SummonerRouter.swift */; };
 		F4FEA9D92870407900C5CBC2 /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9D82870407800C5CBC2 /* Summoner.swift */; };
 		F4FEA9DB2870423500C5CBC2 /* GameOfSummoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DA2870423500C5CBC2 /* GameOfSummoner.swift */; };
-		F4FEA9DE287047B200C5CBC2 /* OPScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DD287047B200C5CBC2 /* OPScoreBadge.swift */; };
+		F4FEA9DE287047B200C5CBC2 /* OPBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DD287047B200C5CBC2 /* OPBadge.swift */; };
 		F4FEA9E0287047D000C5CBC2 /* MostChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DF287047D000C5CBC2 /* MostChampion.swift */; };
 		F4FEA9E2287047D500C5CBC2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9E1287047D500C5CBC2 /* Game.swift */; };
 		F4FEA9E628706AA300C5CBC2 /* SummonerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9E528706AA300C5CBC2 /* SummonerRepository.swift */; };
@@ -83,12 +85,14 @@
 		F498E2EF287036E4008E647B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F498E2F2287036E4008E647B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F498E2F4287036E4008E647B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4B9270A2879CCCB0058AFA4 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
+		F4B9270C287A6B4B0058AFA4 /* ImageViewWithOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewWithOP.swift; sourceTree = "<group>"; };
 		F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F4FEA9D228703EF400C5CBC2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F4FEA9D528703F8100C5CBC2 /* SummonerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRouter.swift; sourceTree = "<group>"; };
 		F4FEA9D82870407800C5CBC2 /* Summoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summoner.swift; sourceTree = "<group>"; };
 		F4FEA9DA2870423500C5CBC2 /* GameOfSummoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfSummoner.swift; sourceTree = "<group>"; };
-		F4FEA9DD287047B200C5CBC2 /* OPScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPScoreBadge.swift; sourceTree = "<group>"; };
+		F4FEA9DD287047B200C5CBC2 /* OPBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPBadge.swift; sourceTree = "<group>"; };
 		F4FEA9DF287047D000C5CBC2 /* MostChampion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostChampion.swift; sourceTree = "<group>"; };
 		F4FEA9E1287047D500C5CBC2 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		F4FEA9E528706AA300C5CBC2 /* SummonerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRepository.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				F460D5F628782FF0009F3C31 /* PaddingLabel.swift */,
+				F4B9270A2879CCCB0058AFA4 /* ScoreLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				F460D60E287962F8009F3C31 /* RightArrowView.swift */,
 				F460D5DB2877270B009F3C31 /* SummonerInfoCell.swift */,
 				F460D60C28795A37009F3C31 /* ImageViewWithLevel.swift */,
+				F4B9270C287A6B4B0058AFA4 /* ImageViewWithOP.swift */,
 				F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */,
 			);
 			path = Present;
@@ -262,7 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FEA9EA28706BFF00C5CBC2 /* Error */,
-				F4FEA9DD287047B200C5CBC2 /* OPScoreBadge.swift */,
+				F4FEA9DD287047B200C5CBC2 /* OPBadge.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -406,9 +412,10 @@
 				F4FEA9DB2870423500C5CBC2 /* GameOfSummoner.swift in Sources */,
 				F460D5F428782BAB009F3C31 /* GameTimeView.swift in Sources */,
 				F4FEA9E628706AA300C5CBC2 /* SummonerRepository.swift in Sources */,
-				F4FEA9DE287047B200C5CBC2 /* OPScoreBadge.swift in Sources */,
+				F4FEA9DE287047B200C5CBC2 /* OPBadge.swift in Sources */,
 				F460D60728794894009F3C31 /* MostWinningView.swift in Sources */,
 				F4FEA9F32870708C00C5CBC2 /* UIViewController+Rx.swift in Sources */,
+				F4B9270D287A6B4B0058AFA4 /* ImageViewWithOP.swift in Sources */,
 				F4FEA9F128706D6E00C5CBC2 /* SummonerViewModel.swift in Sources */,
 				F460D5DC2877270B009F3C31 /* SummonerInfoCell.swift in Sources */,
 				F460D603287943B0009F3C31 /* RecentGameAnalysisView.swift in Sources */,
@@ -418,6 +425,7 @@
 				F4FEA9E928706BC200C5CBC2 /* Moya+Rx.swift in Sources */,
 				F460D5E928780CEF009F3C31 /* SummonerGameCell.swift in Sources */,
 				F460D60B28794FD9009F3C31 /* MostPositionView.swift in Sources */,
+				F4B9270B2879CCCB0058AFA4 /* ScoreLabel.swift in Sources */,
 				F460D5F028782099009F3C31 /* GameTopInfoView.swift in Sources */,
 				F460D5F228782707009F3C31 /* KDAInfoView.swift in Sources */,
 				F460D5E52877FF88009F3C31 /* SummonerTierSectionCell.swift in Sources */,
