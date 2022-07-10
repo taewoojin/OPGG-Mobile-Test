@@ -111,7 +111,7 @@ final class SummonerInfoCell: UICollectionViewCell {
             .flatMap {
                 Observable.merge(
                     .just(.fetchSummonerInfo),
-                    .just(.fetchGameInfo(nil))
+                    .just(.fetchMatches)
                 )
             }
             .bind(to: viewModel.action)

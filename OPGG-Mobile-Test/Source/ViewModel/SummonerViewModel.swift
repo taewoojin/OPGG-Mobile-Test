@@ -13,11 +13,13 @@ final class SummonerViewModel {
     
     enum Action {
         case fetchSummonerInfo
-        case fetchGameInfo(Double?)
+        case fetchMatches
+        case fetchMoreMatches(Double)
     }
     
     enum Mutation {
         case setSummonerInfo(Summoner)
+        case setAnalysis(AnalysedSummoner)
         case setGames([Game])
     }
     
@@ -25,7 +27,7 @@ final class SummonerViewModel {
         var sections: [Section] = [
             Section(type: .info, items: []),
             Section(type: .rankStats, items: [.rankStats([1,2,3])]),
-            Section(type: .analysis, items: [.analysis]),
+            Section(type: .analysis, items: []),
             Section(type: .game, items: [])
         ]
         
@@ -79,18 +81,33 @@ final class SummonerViewModel {
                     }
                 }
             
-        case .fetchGameInfo(let createDate):
+        case .fetchMatches:
             return service
-                .fetchGameInfo(by: createDate)
+                .fetchMatches()
                 .asObservable()
                 .flatMap { result -> Observable<Mutation> in
                     switch result {
-                    case .success(let info):
-                        if createDate == nil {
-                            return .just(.setGames(info.games))
-                        } else {
-                            return .just(.setGames(self.store.games + info.games))
-                        }
+                    case .success(let matches):
+                        return .merge(
+                            .just(.setAnalysis(matches.analysis)),
+                            .just(.setGames(matches.games))
+                        )
+
+                    case .failure(let error):
+                        // TODO: 상황에 따른 에러 처리
+                        return .empty()
+
+                    }
+                }
+            
+        case let .fetchMoreMatches(createDate):
+            return service
+                .fetchMoreMatches(by: createDate)
+                .asObservable()
+                .flatMap { result -> Observable<Mutation> in
+                    switch result {
+                    case .success(let matches):
+                        return .just(.setGames(self.store.games + matches.games))
 
                     case .failure(let error):
                         // TODO: 상황에 따른 에러 처리
@@ -108,10 +125,13 @@ final class SummonerViewModel {
             store.summonerInfo = summoner
             store.sections[0] = Section(type: .info, items: [.info(summoner)])
             
+        case let .setAnalysis(analysis):
+            store.sections[2] = Section(type: .analysis, items: [.analysis(analysis)])
+            
         case .setGames(let games):
             store.games = games
             store.sections[3] = Section(type: .game, items: games.map({ .game($0) }))
-        
+            
         }
         
         return .just(store)

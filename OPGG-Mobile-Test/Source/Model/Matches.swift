@@ -1,12 +1,12 @@
 //
-//  GameOfSummoner.swift
+//  Matches.swift
 //  OPGG-Mobile-Test
 //
-//  Created by 진태우 on 2022/07/02.
+//  Created by 진태우 on 2022/07/10.
 //
 
 
-struct GameOfSummoner: Decodable, Hashable {
+struct Matches: Decodable, Hashable {
     let games: [Game]
     let champions: [GameChampion]
     let positions: [GamePosition]

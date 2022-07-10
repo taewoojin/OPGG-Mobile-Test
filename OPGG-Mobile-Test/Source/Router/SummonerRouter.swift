@@ -13,7 +13,7 @@ import Moya
 enum SummonerRouter {
     case fetchSummonerInfo
     case fetchGameInfo(Double?)
-    
+    case fetchMatches(Double?)
 }
 
 extension SummonerRouter: TargetType {
@@ -36,12 +36,15 @@ extension SummonerRouter: TargetType {
             
         case .fetchGameInfo:
             return "/summoner/genetory/matches"
+        
+        case .fetchMatches:
+            return "/summoner/genetory/matches"
         }
     }
 
     var parameters: [String: Any] {
         switch self {
-        case .fetchGameInfo(let createDate):
+        case .fetchGameInfo(let createDate), .fetchMatches(let createDate):
             guard let date = createDate else { return [:] }
             return [
                 "lastMatch": date
@@ -53,7 +56,7 @@ extension SummonerRouter: TargetType {
 
     public var task: Task {
         switch self {
-        case .fetchGameInfo:
+        case .fetchGameInfo, .fetchMatches:
             return .requestParameters(
                 parameters: self.parameters,
                 encoding: URLEncoding.queryString

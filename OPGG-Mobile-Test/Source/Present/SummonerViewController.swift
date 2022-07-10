@@ -23,7 +23,7 @@ enum SectionType {
 enum SectionItem: Hashable {
     case info(Summoner)
     case rankStats([Int])
-    case analysis
+    case analysis(AnalysedSummoner)
     case game(Game)
 }
 
@@ -120,7 +120,7 @@ final class SummonerViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         viewDidLoad
-            .map { .fetchGameInfo(nil) }
+            .map { .fetchMatches }
             .bind(to: viewModel.action)
             .disposed(by: disposeBag)
     }
@@ -138,7 +138,8 @@ final class SummonerViewController: BaseViewController {
                 return gamesCount - 2 == indexPath.item
             }
             .map { [weak self] _ in self?.viewModel.store.games.last?.createDate }
-            .map { .fetchGameInfo($0) }
+            .filterNil()
+            .map { .fetchMoreMatches($0) }
             .bind(to: viewModel.action)
             .disposed(by: disposeBag)
         

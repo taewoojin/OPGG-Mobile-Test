@@ -14,7 +14,7 @@ extension NSObject {
         return String(describing: self)
     }
     
-    func className() -> String {
+    public func className() -> String {
         return type(of: self).description().components(separatedBy: ".").last ?? ""
     }
     
