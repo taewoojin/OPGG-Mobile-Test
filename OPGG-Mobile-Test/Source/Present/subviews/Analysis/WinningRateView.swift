@@ -65,7 +65,13 @@ final class WinningRateView: UIView {
     }
     
     func configure(imageUrl: String, winningRate: Int) {
-        imageView.loadImage(urlString: imageUrl)
+        imageView.loadImage(urlString: imageUrl, failedHandler:  { [weak self] error in
+            if #available(iOS 13.0, *) {
+                self?.imageView.image = UIImage(systemName: "person.crop.circle.badge.exclamationmark.fill")
+            } else {
+                // FIXME:
+            }
+        })
         rateLabel.text = "\(winningRate)%"
         rateLabel.textColor = winningRate == 100 ? #colorLiteral(red: 0.9098039216, green: 0.2509803922, blue: 0.3411764706, alpha: 1) : #colorLiteral(red: 0.1176470588, green: 0.1254901961, blue: 0.1333333333, alpha: 1)
     }

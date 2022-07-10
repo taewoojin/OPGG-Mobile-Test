@@ -14,4 +14,10 @@ extension Int {
         return Int(round(CGFloat(wins) / CGFloat(wins + losses) * 100))
     }
     
+    func withCommas() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        return numberFormatter.string(from: NSNumber(value: self))!
+    }
+    
 }

@@ -20,7 +20,12 @@ final class SummonerTierCell: UICollectionViewCell {
         arrowView
     ])
     
-    private lazy var contentStackView = UIStackView(arrangedSubviews: [rankTypeLabel, tierLabel, lpLabel, winRateLabel])
+    private lazy var contentStackView = UIStackView(arrangedSubviews: [
+        rankTypeLabel,
+        tierLabel,
+        lpLabel,
+        winRateLabel
+    ])
     
     private let tierImageView = UIImageView()
     
@@ -122,10 +127,10 @@ final class SummonerTierCell: UICollectionViewCell {
         tierImageView.loadImage(urlString: league.tierRank.imageUrl)
         rankTypeLabel.text = league.tierRank.name
         tierLabel.text = league.tierRank.tier
-        lpLabel.text = "\(league.tierRank.lp) LP"
+        lpLabel.text = "\(league.tierRank.lp.withCommas()) LP"
         
-        let winRate = Int(round(CGFloat(league.wins) / CGFloat(league.wins + league.losses) * 100))
-        winRateLabel.text = "\(league.wins)승 \(league.losses)패 (\(winRate)%)"
+        let winningRate = Int.winningRate(wins: league.wins, losses: league.losses)
+        winRateLabel.text = "\(league.wins)승 \(league.losses)패 (\(winningRate)%)"
     }
     
 }

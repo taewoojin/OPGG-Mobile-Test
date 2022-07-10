@@ -21,8 +21,6 @@ final class SummonerTierSectionCell: UICollectionViewCell {
     
     // MARK: Properties
     
-    private weak var viewModel: SummonerViewModel?
-    
     private var disposeBag = DisposeBag()
     
     
@@ -68,21 +66,15 @@ final class SummonerTierSectionCell: UICollectionViewCell {
         }
     }
     
-    private func setupBinding() {
-        disposeBag = DisposeBag()
-        
-        viewModel?.currentStore
-            .map { $0.summonerInfo?.leagues }
-            .filterNil()
-            .bind(to: collectionView.rx.items(cellIdentifier: SummonerTierCell.typeName, cellType: SummonerTierCell.self)) { row, element, cell in
+    func configure(with leagues: [League]) {
+        Observable.just(leagues)
+            .bind(to: collectionView.rx.items(
+                cellIdentifier: SummonerTierCell.typeName,
+                cellType: SummonerTierCell.self)
+            ) { row, element, cell in
                 cell.configure(with: element)
             }
             .disposed(by: disposeBag)
-    }
-    
-    func configure(viewModel: SummonerViewModel?) {
-        self.viewModel = viewModel
-        setupBinding()
     }
     
 }

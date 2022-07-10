@@ -19,6 +19,7 @@ final class SummonerViewModel {
     
     enum Mutation {
         case setSummonerInfo(Summoner)
+        case setLeagues([League])
         case setAnalysis(AnalysedSummoner)
         case setGames([Game])
     }
@@ -26,12 +27,11 @@ final class SummonerViewModel {
     struct Store {
         var sections: [Section] = [
             Section(type: .info, items: []),
-            Section(type: .rankStats, items: [.rankStats([1,2,3])]),
+            Section(type: .league, items: []),
             Section(type: .analysis, items: []),
             Section(type: .game, items: [])
         ]
         
-        var summonerInfo: Summoner?
         var games: [Game] = []
     }
     
@@ -71,8 +71,12 @@ final class SummonerViewModel {
                 .asObservable()
                 .flatMap { result -> Observable<Mutation> in
                     switch result {
-                    case .success(let info):
-                        return .just(.setSummonerInfo(info))
+                    case .success(let summoner):
+                        return .merge(
+                            .just(.setSummonerInfo(summoner)),
+                            .just(.setLeagues(summoner.leagues))
+                        )
+                        return .just(.setSummonerInfo(summoner))
                         
                     case .failure(let error):
                         // TODO: 상황에 따른 에러 처리
@@ -122,8 +126,10 @@ final class SummonerViewModel {
     private func reduce(_ mutation: Mutation) -> Observable<Store> {
         switch mutation {
         case .setSummonerInfo(let summoner):
-            store.summonerInfo = summoner
             store.sections[0] = Section(type: .info, items: [.info(summoner)])
+            
+        case let .setLeagues(leagues):
+            store.sections[1] = Section(type: .league, items: [.league(leagues)])
             
         case let .setAnalysis(analysis):
             store.sections[2] = Section(type: .analysis, items: [.analysis(analysis)])

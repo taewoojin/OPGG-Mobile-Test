@@ -51,6 +51,7 @@ enum GamePositionType: String, Decodable, Hashable {
     case middle = "MID"
     case bottom = "ADC"
     case support = "SUP"
+    case all = "ALL"
     
     var image: UIImage? {
         switch self {
@@ -59,6 +60,7 @@ enum GamePositionType: String, Decodable, Hashable {
         case .middle: return UIImage(named: "iconLolMid")
         case .bottom: return UIImage(named: "iconLolBot")
         case .support: return UIImage(named: "iconLolSup")
+        case .all: return UIImage(named: "iconLolAll")
         }
     }
 }

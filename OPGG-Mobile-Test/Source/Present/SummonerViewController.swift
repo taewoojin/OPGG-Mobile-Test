@@ -20,14 +20,14 @@ struct Section: Hashable {
     
     enum SectionType {
         case info
-        case rankStats
+        case league
         case analysis
         case game
     }
 
     enum SectionItem: Hashable {
         case info(Summoner)
-        case rankStats([Int])
+        case league([League])
         case analysis(AnalysedSummoner)
         case game(Game)
     }
@@ -162,12 +162,12 @@ final class SummonerViewController: BaseViewController {
                 cell.configure(with: summoner, viewModel: self.viewModel)
                 return cell
                 
-            case .rankStats(_):
+            case let .league(leagues):
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: SummonerTierSectionCell.typeName,
                     for: indexPath
                 ) as! SummonerTierSectionCell
-                cell.configure(viewModel: self.viewModel)
+                cell.configure(with: leagues)
                 return cell
                 
             case let .analysis(analysis):
@@ -205,7 +205,7 @@ extension SummonerViewController: UICollectionViewDelegateFlowLayout {
         let type = dataSource.sectionModels[indexPath.section].type
         switch type {
         case .info: return CGSize(width: collectionView.bounds.width - (24 * 2), height: 100)
-        case .rankStats: return CGSize(width: collectionView.bounds.width, height: 120)
+        case .league: return CGSize(width: collectionView.bounds.width, height: 120)
         default: return CGSize(width: collectionView.bounds.width, height: 100)
         }
     }
@@ -227,7 +227,7 @@ extension SummonerViewController: UICollectionViewDelegateFlowLayout {
         
         switch type {
         case .info: return UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
-        case .rankStats: return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        case .league: return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         case .analysis: return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
         case .game: return UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
         }
