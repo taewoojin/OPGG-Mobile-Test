@@ -19,15 +19,10 @@ final class MostPositionView: UIView {
     private let rateView = WinningRateView()
     
     
-    // MARK: Properties
-    
-//    private let game: Game
-    
-    
     // MARK: Initializing
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupAttributes()
         setupLayout()
     }

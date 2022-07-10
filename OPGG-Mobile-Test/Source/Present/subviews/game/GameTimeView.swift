@@ -62,6 +62,7 @@ final class GameTimeView: UIView {
     }
     
     private func calcElapsedTime(from date: Date) -> String {
+        // TODO:
         let diffDate = Calendar.current.dateComponents([.second, .minute, .hour, .day, .weekOfMonth], from: date, to: Date())
         
         if diffDate.weekOfMonth! > 0 {

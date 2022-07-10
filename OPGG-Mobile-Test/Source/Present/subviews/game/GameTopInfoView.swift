@@ -58,10 +58,6 @@ final class GameTopInfoView: UIView {
         
         peakStackView.axis = .vertical
         peakStackView.spacing = 2
-        
-//        charactorImageView.backgroundColor = .systemGray
-//        charactorImageView.contentMode = .scaleAspectFill
-//        charactorImageView.layer.masksToBounds = true
     }
     
     private func setupLayout() {
@@ -106,7 +102,6 @@ final class GameTopInfoView: UIView {
             imageView.loadImage(urlString: peak)
             peakStackView.addArrangedSubview(imageView)
         }
-        
     }
     
 }

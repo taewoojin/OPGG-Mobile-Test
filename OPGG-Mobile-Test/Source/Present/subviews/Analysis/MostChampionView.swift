@@ -19,15 +19,10 @@ final class MostChampionView: UIView {
     private let titleLabel = UILabel()
     
     
-    // MARK: Properties
-    
-//    private let game: Game
-    
-    
     // MARK: Initializing
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupAttributes()
         setupLayout()
     }
@@ -51,7 +46,6 @@ final class MostChampionView: UIView {
         titleLabel.text = "모스트 승률"
         titleLabel.font = .systemFont(ofSize: 10)
         titleLabel.textColor = #colorLiteral(red: 0.5960784314, green: 0.6274509804, blue: 0.6549019608, alpha: 1)
-        
     }
     
     private func setupLayout() {

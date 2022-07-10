@@ -12,7 +12,6 @@ final class RecentMatchesAnalysisView: UIView {
 
     // MARK: UI
     
-    
     private lazy var contentStackView = UIStackView(arrangedSubviews: [
         winLoseLabel,
         scoreLabel,
@@ -32,14 +31,9 @@ final class RecentMatchesAnalysisView: UIView {
     private let winningRateLabel = UILabel()
     
     
-    // MARK: Properties
-    
-    
-    
     // MARK: Initializing
-    
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupAttributes()
         setupLayout()
     }

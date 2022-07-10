@@ -26,8 +26,8 @@ final class WinningRateView: UIView {
     
     // MARK: Initializing
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupAttributes()
         setupLayout()
     }
