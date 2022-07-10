@@ -11,18 +11,4 @@ struct Summoner: Decodable, Hashable {
     let level: Int
     let profileImageUrl: String
     let leagues: [League]
-    
-}
-
-struct League: Decodable, Hashable {
-    let wins: Int
-    let losses: Int
-    let tierRank: TierRank
-}
-
-struct TierRank: Decodable, Hashable {
-    let name: String        // 게임타입
-    let imageUrl: String
-    let tier: String
-    let lp: Int
 }

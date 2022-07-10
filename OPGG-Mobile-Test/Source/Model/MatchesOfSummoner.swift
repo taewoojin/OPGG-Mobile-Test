@@ -10,4 +10,3 @@ struct MatchesOfSummoner: Hashable {
     let analysis: AnalysedSummoner
     let games: [Game]
 }
-

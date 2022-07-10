@@ -5,8 +5,6 @@
 //  Created by 진태우 on 2022/07/10.
 //
 
-import CoreGraphics
-
 
 /// 소환사의 게임 정보 분석 모델
 struct AnalysedSummoner: Hashable {

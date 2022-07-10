@@ -15,8 +15,6 @@ import RxSwift
 
 protocol SummonerServiceProtocol {
     func fetchSummonerInfo() -> Single<Result<Summoner, Error>>
-    func fetchGameInfo(by createDate: Double?) -> Single<Result<GameOfSummoner, Error>>
-    
     func fetchMatches() -> Single<Result<MatchesOfSummoner, Error>>
     func fetchMoreMatches(by createDate: Double) -> Single<Result<Matches, Error>>
 }
@@ -33,10 +31,6 @@ struct SummonerService: SummonerServiceProtocol {
     
     func fetchSummonerInfo() -> Single<Result<Summoner, Error>> {
         return repository.fetchSummonerInfo()
-    }
-    
-    func fetchGameInfo(by createDate: Double?) -> Single<Result<GameOfSummoner, Error>> {
-        return repository.fetchGameInfo(by: createDate)
     }
     
     func fetchMatches() -> Single<Result<MatchesOfSummoner, Error>> {

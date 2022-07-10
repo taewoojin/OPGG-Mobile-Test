@@ -43,6 +43,7 @@
 		F4B92719287AA3700058AFA4 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B92718287AA3700058AFA4 /* Double+Extensions.swift */; };
 		F4B9271B287AAB630058AFA4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9271A287AAB630058AFA4 /* Array+Extensions.swift */; };
 		F4B9271D287AAD540058AFA4 /* MatchesOfSummoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9271C287AAD540058AFA4 /* MatchesOfSummoner.swift */; };
+		F4B92723287AE87F0058AFA4 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B92722287AE87F0058AFA4 /* League.swift */; };
 		F4FEA9BF2870392900C5CBC2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */; };
 		F4FEA9C22870396400C5CBC2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9C12870396400C5CBC2 /* SnapKit */; };
 		F4FEA9C52870398900C5CBC2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9C42870398900C5CBC2 /* RxCocoa */; };
@@ -54,7 +55,6 @@
 		F4FEA9D328703EF500C5CBC2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9D228703EF400C5CBC2 /* Constant.swift */; };
 		F4FEA9D628703F8100C5CBC2 /* SummonerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9D528703F8100C5CBC2 /* SummonerRouter.swift */; };
 		F4FEA9D92870407900C5CBC2 /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9D82870407800C5CBC2 /* Summoner.swift */; };
-		F4FEA9DB2870423500C5CBC2 /* GameOfSummoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DA2870423500C5CBC2 /* GameOfSummoner.swift */; };
 		F4FEA9DE287047B200C5CBC2 /* OPBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DD287047B200C5CBC2 /* OPBadge.swift */; };
 		F4FEA9E0287047D000C5CBC2 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9DF287047D000C5CBC2 /* Champion.swift */; };
 		F4FEA9E2287047D500C5CBC2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9E1287047D500C5CBC2 /* Game.swift */; };
@@ -103,11 +103,11 @@
 		F4B92718287AA3700058AFA4 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		F4B9271A287AAB630058AFA4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		F4B9271C287AAD540058AFA4 /* MatchesOfSummoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesOfSummoner.swift; sourceTree = "<group>"; };
+		F4B92722287AE87F0058AFA4 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F4FEA9D228703EF400C5CBC2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F4FEA9D528703F8100C5CBC2 /* SummonerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRouter.swift; sourceTree = "<group>"; };
 		F4FEA9D82870407800C5CBC2 /* Summoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summoner.swift; sourceTree = "<group>"; };
-		F4FEA9DA2870423500C5CBC2 /* GameOfSummoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfSummoner.swift; sourceTree = "<group>"; };
 		F4FEA9DD287047B200C5CBC2 /* OPBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPBadge.swift; sourceTree = "<group>"; };
 		F4FEA9DF287047D000C5CBC2 /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
 		F4FEA9E1287047D500C5CBC2 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -142,11 +142,11 @@
 		F460D5DD287727B2009F3C31 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F4B9271A287AAB630058AFA4 /* Array+Extensions.swift */,
+				F4B92718287AA3700058AFA4 /* Double+Extensions.swift */,
+				F4B92716287AA17B0058AFA4 /* Int+Extensions.swift */,
 				F460D5DE287727BE009F3C31 /* NSObject+Extensions.swift */,
 				F460D5F828786DF2009F3C31 /* UIImageView+Extensions.swift */,
-				F4B92716287AA17B0058AFA4 /* Int+Extensions.swift */,
-				F4B92718287AA3700058AFA4 /* Double+Extensions.swift */,
-				F4B9271A287AAB630058AFA4 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -299,15 +299,15 @@
 		F4FEA9D72870407000C5CBC2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F4FEA9D82870407800C5CBC2 /* Summoner.swift */,
-				F4FEA9DA2870423500C5CBC2 /* GameOfSummoner.swift */,
-				F4B92714287A9F900058AFA4 /* Matches.swift */,
-				F4B9271C287AAD540058AFA4 /* MatchesOfSummoner.swift */,
+				F4B92710287A97360058AFA4 /* AnalysedSummoner.swift */,
+				F4FEA9DF287047D000C5CBC2 /* Champion.swift */,
+				F4FEA9E1287047D500C5CBC2 /* Game.swift */,
 				F4B92712287A9A020058AFA4 /* GamePosition.swift */,
 				F4B9270E287A963B0058AFA4 /* GameSummary.swift */,
-				F4FEA9E1287047D500C5CBC2 /* Game.swift */,
-				F4FEA9DF287047D000C5CBC2 /* Champion.swift */,
-				F4B92710287A97360058AFA4 /* AnalysedSummoner.swift */,
+				F4B92722287AE87F0058AFA4 /* League.swift */,
+				F4B92714287A9F900058AFA4 /* Matches.swift */,
+				F4B9271C287AAD540058AFA4 /* MatchesOfSummoner.swift */,
+				F4FEA9D82870407800C5CBC2 /* Summoner.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,8 +315,8 @@
 		F4FEA9DC287047A700C5CBC2 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				F4FEA9EA28706BFF00C5CBC2 /* Error */,
 				F4FEA9DD287047B200C5CBC2 /* OPBadge.swift */,
+				F4FEA9EA28706BFF00C5CBC2 /* Error */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -458,9 +458,9 @@
 				F4FEA9D628703F8100C5CBC2 /* SummonerRouter.swift in Sources */,
 				F4FEA9E2287047D500C5CBC2 /* Game.swift in Sources */,
 				F460D60F287962F8009F3C31 /* RightArrowView.swift in Sources */,
+				F4B92723287AE87F0058AFA4 /* League.swift in Sources */,
 				F4B9271D287AAD540058AFA4 /* MatchesOfSummoner.swift in Sources */,
 				F498E2EB287036E2008E647B /* SummonerViewController.swift in Sources */,
-				F4FEA9DB2870423500C5CBC2 /* GameOfSummoner.swift in Sources */,
 				F460D5F428782BAB009F3C31 /* GameTimeView.swift in Sources */,
 				F4FEA9E628706AA300C5CBC2 /* SummonerRepository.swift in Sources */,
 				F4FEA9DE287047B200C5CBC2 /* OPBadge.swift in Sources */,

@@ -25,6 +25,27 @@ struct GamePosition: Decodable, Hashable {
         case positionType = "position"
     }
     
+    enum GamePositionType: String, Decodable, Hashable {
+        case top = "TOP"
+        case jungle = "JNG"
+        case middle = "MID"
+        case bottom = "ADC"
+        case support = "SUP"
+        case all = "ALL"
+        
+        var image: UIImage? {
+            switch self {
+            case .top: return UIImage(named: "iconLolTop")
+            case .jungle: return UIImage(named: "iconLolJng")
+            case .middle: return UIImage(named: "iconLolMid")
+            case .bottom: return UIImage(named: "iconLolBot")
+            case .support: return UIImage(named: "iconLolSup")
+            case .all: return UIImage(named: "iconLolAll")
+            }
+        }
+    }
+    
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         games = try values.decode(Int.self, forKey: .games)
@@ -37,6 +58,7 @@ struct GamePosition: Decodable, Hashable {
         
         winningRate = Int.winningRate(wins: wins, losses: losses)
     }
+
 }
 
 extension GamePosition: Comparable {
@@ -44,25 +66,3 @@ extension GamePosition: Comparable {
         return lhs.winningRate > rhs.winningRate
     }
 }
-
-enum GamePositionType: String, Decodable, Hashable {
-    case top = "TOP"
-    case jungle = "JNG"
-    case middle = "MID"
-    case bottom = "ADC"
-    case support = "SUP"
-    case all = "ALL"
-    
-    var image: UIImage? {
-        switch self {
-        case .top: return UIImage(named: "iconLolTop")
-        case .jungle: return UIImage(named: "iconLolJng")
-        case .middle: return UIImage(named: "iconLolMid")
-        case .bottom: return UIImage(named: "iconLolBot")
-        case .support: return UIImage(named: "iconLolSup")
-        case .all: return UIImage(named: "iconLolAll")
-        }
-    }
-}
-
-

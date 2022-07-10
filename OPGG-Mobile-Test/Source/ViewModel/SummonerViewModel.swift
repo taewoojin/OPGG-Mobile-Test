@@ -76,7 +76,6 @@ final class SummonerViewModel {
                             .just(.setSummonerInfo(summoner)),
                             .just(.setLeagues(summoner.leagues))
                         )
-                        return .just(.setSummonerInfo(summoner))
                         
                     case .failure(let error):
                         // TODO: 상황에 따른 에러 처리

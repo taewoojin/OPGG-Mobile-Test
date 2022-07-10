@@ -6,7 +6,7 @@
 //
 
 
-struct GameChampion: Decodable, Hashable, Comparable {
+struct GameChampion: Decodable, Hashable {
     let name: String
     let imageUrl: String
     let games: Int
@@ -37,6 +37,10 @@ struct GameChampion: Decodable, Hashable, Comparable {
         winningRate = Int.winningRate(wins: wins, losses: losses)
     }
     
+}
+
+
+extension GameChampion: Comparable {
     static func < (lhs: GameChampion, rhs: GameChampion) -> Bool {
         return lhs.winningRate > rhs.winningRate
     }
