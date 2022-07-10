@@ -48,6 +48,7 @@
 		F4B92727287AE9D10058AFA4 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B92726287AE9D10058AFA4 /* BaseError.swift */; };
 		F4B92729287AE9F60058AFA4 /* JSONError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B92728287AE9F60058AFA4 /* JSONError.swift */; };
 		F4B9272B287AEDB20058AFA4 /* MoyaError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9272A287AEDB20058AFA4 /* MoyaError+Extensions.swift */; };
+		F4B9272D287AF4560058AFA4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9272C287AF4560058AFA4 /* Date+Extensions.swift */; };
 		F4FEA9BF2870392900C5CBC2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */; };
 		F4FEA9C22870396400C5CBC2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9C12870396400C5CBC2 /* SnapKit */; };
 		F4FEA9C52870398900C5CBC2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F4FEA9C42870398900C5CBC2 /* RxCocoa */; };
@@ -112,6 +113,7 @@
 		F4B92726287AE9D10058AFA4 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		F4B92728287AE9F60058AFA4 /* JSONError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONError.swift; sourceTree = "<group>"; };
 		F4B9272A287AEDB20058AFA4 /* MoyaError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaError+Extensions.swift"; sourceTree = "<group>"; };
+		F4B9272C287AF4560058AFA4 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		F4FEA9BE2870392900C5CBC2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F4FEA9D228703EF400C5CBC2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F4FEA9D528703F8100C5CBC2 /* SummonerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRouter.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				F4B92716287AA17B0058AFA4 /* Int+Extensions.swift */,
 				F460D5DE287727BE009F3C31 /* NSObject+Extensions.swift */,
 				F460D5F828786DF2009F3C31 /* UIImageView+Extensions.swift */,
+				F4B9272C287AF4560058AFA4 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,8 +318,8 @@
 				F4B92722287AE87F0058AFA4 /* League.swift */,
 				F4B92714287A9F900058AFA4 /* Matches.swift */,
 				F4B9271C287AAD540058AFA4 /* MatchesOfSummoner.swift */,
-				F4FEA9D82870407800C5CBC2 /* Summoner.swift */,
 				F4B92724287AE9B70058AFA4 /* ResponseError.swift */,
+				F4FEA9D82870407800C5CBC2 /* Summoner.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				F4FEA9E2287047D500C5CBC2 /* Game.swift in Sources */,
 				F460D60F287962F8009F3C31 /* RightArrowView.swift in Sources */,
 				F4B92723287AE87F0058AFA4 /* League.swift in Sources */,
+				F4B9272D287AF4560058AFA4 /* Date+Extensions.swift in Sources */,
 				F4B9271D287AAD540058AFA4 /* MatchesOfSummoner.swift in Sources */,
 				F498E2EB287036E2008E647B /* SummonerViewController.swift in Sources */,
 				F460D5F428782BAB009F3C31 /* GameTimeView.swift in Sources */,

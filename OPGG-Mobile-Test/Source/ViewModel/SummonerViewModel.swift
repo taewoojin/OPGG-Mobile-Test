@@ -26,12 +26,9 @@ final class SummonerViewModel {
     }
     
     struct Store {
-        var sections: [Section] = [
-            Section(type: .info, items: []),
-            Section(type: .league, items: []),
-            Section(type: .analysis, items: []),
-            Section(type: .game, items: [])
-        ]
+        var sections: [Section] = SectionType.allCases.map {
+            Section(type: $0, items: [])
+        }
         
         var games: [Game] = []
         var error: ResponseError?
@@ -132,17 +129,29 @@ final class SummonerViewModel {
     private func reduce(_ mutation: Mutation) -> Observable<Store> {
         switch mutation {
         case .setSummonerInfo(let summoner):
-            store.sections[0] = Section(type: .info, items: [.info(summoner)])
+            store.sections[SectionType.info.rawValue] = Section(
+                type: .info,
+                items: [.info(summoner)]
+            )
             
         case let .setLeagues(leagues):
-            store.sections[1] = Section(type: .league, items: [.league(leagues)])
+            store.sections[SectionType.league.rawValue] = Section(
+                type: .league,
+                items: [.league(leagues)]
+            )
             
         case let .setAnalysis(analysis):
-            store.sections[2] = Section(type: .analysis, items: [.analysis(analysis)])
+            store.sections[SectionType.analysis.rawValue] = Section(
+                type: .analysis,
+                items: [.analysis(analysis)]
+            )
             
         case let .setGames(games):
             store.games = games
-            store.sections[3] = Section(type: .game, items: games.map({ .game($0) }))
+            store.sections[SectionType.game.rawValue] = Section(
+                type: .game,
+                items: games.map({ .game($0) })
+            )
             
         case let .setError(error):
             store.error = error

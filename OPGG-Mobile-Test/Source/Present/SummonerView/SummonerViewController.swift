@@ -12,25 +12,24 @@ import RxOptional
 import RxSwift
 import SnapKit
 
-
-// TODO: 
+ 
 struct Section: Hashable {
     var type: SectionType
     var items: [SectionItem]
-    
-    enum SectionType {
-        case info
-        case league
-        case analysis
-        case game
-    }
+}
 
-    enum SectionItem: Hashable {
-        case info(Summoner)
-        case league([League])
-        case analysis(AnalysedSummoner)
-        case game(Game)
-    }
+enum SectionType: Int, CaseIterable {
+    case info
+    case league
+    case analysis
+    case game
+}
+
+enum SectionItem: Hashable {
+    case info(Summoner)
+    case league([League])
+    case analysis(AnalysedSummoner)
+    case game(Game)
 }
 
 extension Section: SectionModelType {
